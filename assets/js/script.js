@@ -93,15 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Optional: Navbar slightly more opaque on scroll
     const glassNav = document.querySelector('.glass-nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            glassNav.classList.add('bg-slate-900/80', 'backdrop-blur-xl');
-            glassNav.classList.remove('backdrop-blur-lg'); // Remove default lighter blur if needed
-        } else {
-            glassNav.classList.remove('bg-slate-900/80', 'backdrop-blur-xl');
-            glassNav.classList.add('backdrop-blur-lg');
-        }
-    });
+    if (glassNav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                glassNav.classList.add('bg-slate-900/80', 'backdrop-blur-xl');
+                glassNav.classList.remove('backdrop-blur-lg'); // Remove default lighter blur if needed
+            } else {
+                glassNav.classList.remove('bg-slate-900/80', 'backdrop-blur-xl');
+                glassNav.classList.add('backdrop-blur-lg');
+            }
+        });
+    }
 
     // Smooth Scroll for Anchor Links (fixes offset for fixed header)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -123,4 +125,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Typing Effect Logic
+    const typeWriterElement = document.getElementById('typewriter-text');
+    const textToType = "Public Policy";
+    const typingSpeed = 100; // ms per char
+    const startDelay = 1000; // 1 second delay before starting
+
+    if (typeWriterElement) {
+        let i = 0;
+        setTimeout(() => {
+            function type() {
+                if (i < textToType.length) {
+                    typeWriterElement.innerHTML += textToType.charAt(i);
+                    i++;
+                    setTimeout(type, typingSpeed);
+                }
+            }
+            type();
+        }, startDelay);
+    }
 });
