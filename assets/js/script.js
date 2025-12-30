@@ -125,27 +125,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Typing Effect Logic
-    const typeWriterElement = document.getElementById('typewriter-text');
-    const textToType = "Public Policy";
-    const typingSpeed = 100; // ms per char
-    const startDelay = 500; // Reduced delay
 
-    // Ensure element is visible before starting
-    if (typeWriterElement) {
-        // Clear initially just in case
-        typeWriterElement.textContent = '';
-
-        setTimeout(() => {
-            let i = 0;
-            function type() {
-                if (i < textToType.length) {
-                    typeWriterElement.textContent += textToType.charAt(i);
-                    i++;
-                    setTimeout(type, typingSpeed);
-                }
-            }
-            type();
-        }, startDelay);
-    }
 });
