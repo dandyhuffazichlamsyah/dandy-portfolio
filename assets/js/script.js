@@ -125,5 +125,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Hacker Decode Animation Logic
+    const hackTextElement = document.getElementById('hack-text');
+    if (hackTextElement) {
+        const phrases = ['Public Policy', 'Digital Gov', 'Smart Logistics', 'Systems Logic'];
+        let currentPhraseIndex = 0;
+
+        const chars = '!<>-_\\/[]{}—=+*^?#________'; // Random chars for effect
+
+        function resolvePhrase(element, phrase) {
+            return new Promise(resolve => {
+                let frame = 0;
+                const totalFrames = 40; // Duration of scramble
+                const originalText = phrase;
+
+                const interval = setInterval(() => {
+                    element.innerText = originalText.split('').map((char, index) => {
+                        if (index < frame / 3) { // Reveal characters progressively
+                            return originalText[index];
+                        }
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    }).join('');
+
+                    if (frame >= totalFrames + (originalText.length * 3)) { // Ensure enough time
+                        clearInterval(interval);
+                        element.innerText = originalText;
+                        resolve();
+                    }
+                    frame++;
+                }, 40); // 40ms per frame
+            });
+        }
+
+        async function startLoop() {
+            while (true) {
+                await resolvePhrase(hackTextElement, phrases[currentPhraseIndex]);
+                await new Promise(r => setTimeout(r, 2000)); // Wait 2s visible
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                // Quick scramble out before next word could be added here if desired.
+                // For now, we just jump to decrypting the next word which looks cool.
+            }
+        }
+
+        startLoop();
+    }
 
 });
