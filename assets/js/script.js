@@ -129,14 +129,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const typeWriterElement = document.getElementById('typewriter-text');
     const textToType = "Public Policy";
     const typingSpeed = 100; // ms per char
-    const startDelay = 1000; // 1 second delay before starting
+    const startDelay = 500; // Reduced delay
 
+    // Ensure element is visible before starting
     if (typeWriterElement) {
-        let i = 0;
+        // Clear initially just in case
+        typeWriterElement.textContent = '';
+
         setTimeout(() => {
+            let i = 0;
             function type() {
                 if (i < textToType.length) {
-                    typeWriterElement.innerHTML += textToType.charAt(i);
+                    typeWriterElement.textContent += textToType.charAt(i);
                     i++;
                     setTimeout(type, typingSpeed);
                 }
