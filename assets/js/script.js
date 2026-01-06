@@ -170,4 +170,77 @@ document.addEventListener('DOMContentLoaded', () => {
         startLoop();
     }
 
+    // Certificate Modal Logic
+    const modal = document.getElementById('certificateModal');
+    const modalBody = document.getElementById('modalBody');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeModal = document.getElementById('closeModal');
+    const downloadLink = document.getElementById('downloadLink');
+
+    if (modal) {
+        // Open Modal
+        document.querySelectorAll('.view-certificate').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const fileUrl = link.getAttribute('href');
+                const fileType = link.getAttribute('data-type');
+                const title = link.getAttribute('data-title');
+
+                // Update Title
+                modalTitle.innerHTML = `<i class="fas fa-certificate text-primary"></i> <span>${title}</span>`;
+                
+                // Update Download Link
+                downloadLink.href = fileUrl;
+
+                // Clear previous content
+                modalBody.innerHTML = '<div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary absolute"></div>';
+
+                // Show Modal
+                modal.classList.remove('hidden');
+                // Trigger reflow
+                void modal.offsetWidth;
+                modal.classList.remove('opacity-0');
+                modal.querySelector('#modalContent').classList.remove('scale-95');
+                modal.querySelector('#modalContent').classList.add('scale-100');
+
+                // Load Content
+                setTimeout(() => {
+                    if (fileType === 'pdf') {
+                        modalBody.innerHTML = `<iframe src="${fileUrl}" class="w-full h-full border-0" title="Certificate Viewer"></iframe>`;
+                    } else {
+                        modalBody.innerHTML = `<img src="${fileUrl}" class="max-w-full max-h-full object-contain" alt="Certificate">`;
+                    }
+                }, 300); // Small delay for animation
+            });
+        });
+
+        // Close Modal Function
+        const closeModalFunc = () => {
+             modal.classList.add('opacity-0');
+             modal.querySelector('#modalContent').classList.remove('scale-100');
+             modal.querySelector('#modalContent').classList.add('scale-95');
+             
+             setTimeout(() => {
+                 modal.classList.add('hidden');
+                 modalBody.innerHTML = ''; // Clear heavy content like iframes
+             }, 300);
+        };
+
+        closeModal.addEventListener('click', closeModalFunc);
+
+        // Close on backdrop click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModalFunc();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModalFunc();
+            }
+        });
+    }
+
 });
