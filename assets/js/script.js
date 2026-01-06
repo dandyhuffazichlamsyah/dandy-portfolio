@@ -1,9 +1,255 @@
+/* ====================================================
+   CYBERPUNK TERMINAL - Interactive JavaScript
+   Ultra-Futuristic Portfolio Experience
+   ==================================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Initialize AOS (Animate On Scroll) logic is in index.html,
-    // ensuring this script doesn't conflict.
+    // ============================================
+    // CURSOR TRAIL EFFECT
+    // ============================================
+    const cursorMain = document.querySelector('.cursor-main');
+    const trailContainer = document.getElementById('cursor-trail-container');
 
-    // Mobile Menu Toggle
+    if (cursorMain && window.innerWidth > 768) {
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        const trail = [];
+        const trailLength = 20;
+
+        // Create trail elements
+        for (let i = 0; i < trailLength; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'cursor-trail';
+            dot.style.opacity = (1 - i / trailLength) * 0.5;
+            dot.style.transform = `scale(${1 - i / trailLength})`;
+            document.body.appendChild(dot);
+            trail.push({ el: dot, x: 0, y: 0 });
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            // Main cursor with lag
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+
+            cursorMain.style.left = cursorX + 'px';
+            cursorMain.style.top = cursorY + 'px';
+            cursorMain.style.transform = 'translate(-50%, -50%)';
+
+            // Trail animation
+            let prevX = mouseX;
+            let prevY = mouseY;
+
+            trail.forEach((dot, i) => {
+                const speed = 0.35 - (i * 0.01);
+                dot.x += (prevX - dot.x) * speed;
+                dot.y += (prevY - dot.y) * speed;
+
+                dot.el.style.left = dot.x + 'px';
+                dot.el.style.top = dot.y + 'px';
+                dot.el.style.transform = `translate(-50%, -50%) scale(${1 - i / trailLength})`;
+
+                prevX = dot.x;
+                prevY = dot.y;
+            });
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Hover states
+        const interactiveEls = document.querySelectorAll('a, button, .card-cyber, .tag-cyber, input, textarea');
+        interactiveEls.forEach(el => {
+            el.addEventListener('mouseenter', () => cursorMain.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursorMain.classList.remove('hover'));
+        });
+    }
+
+    // ============================================
+    // INTERACTIVE TERMINAL
+    // ============================================
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalOutput = document.getElementById('terminal-output');
+
+    if (terminalInput && terminalOutput) {
+        const commands = {
+            'help': `Available commands:
+  whoami     - About me
+  skills     - My technical skills
+  projects   - View my work
+  contact    - Get in touch
+  social     - Social links
+  clear      - Clear terminal`,
+
+            'whoami': `┌──────────────────────────────────────┐
+│  DANDY HUFFAZ ICHLAMSYAH             │
+│  ──────────────────────────────────  │
+│  > Systems Architect                  │
+│  > Public Administration Expert       │
+│  > Software Developer                 │
+│  ──────────────────────────────────  │
+│  Bridging technology and governance   │
+│  through innovative digital solutions │
+└──────────────────────────────────────┘`,
+
+            'skills': `[TECHNICAL SKILLS]
+├── Languages: Python, JavaScript, SQL
+├── Frameworks: React, Node.js, FastAPI
+├── AI/ML: TensorFlow, Scikit-learn
+├── Tools: Git, Docker, Linux
+└── Cloud: AWS, Google Cloud
+
+[DOMAIN EXPERTISE]
+├── Public Policy & Administration
+├── Digital Government Systems
+├── Logistics & Operations
+└── Data Analysis`,
+
+            'projects': `[FEATURED PROJECTS]
+┌─ 01. Digital Gov Platform
+│  └─ Streamlining public services
+├─ 02. AI Policy Analyzer
+│  └─ ML-powered document analysis
+├─ 03. Smart Logistics System
+│  └─ Real-time operations dashboard
+└─ 04. Research Publications
+   └─ Academic contributions
+
+Type 'scroll' to explore projects section ↓`,
+
+            'contact': `[CONTACT INFO]
+├── Email: dandyichlamsyah@gmail.com
+├── LinkedIn: /in/dandy-huffaz-ichlamsyah
+└── GitHub: /dandyhuffazichlamsyah
+
+Or scroll down to the contact form ↓`,
+
+            'social': `[SOCIAL LINKS]
+├── LinkedIn → linkedin.com/in/dandy-huffaz-ichlamsyah-563211190
+├── GitHub   → github.com/dandyhuffazichlamsyah
+└── Email    → dandyichlamsyah@gmail.com`,
+
+            'clear': 'CLEAR',
+
+            'scroll': 'SCROLL_TO_PROJECTS',
+
+            'sudo': 'Nice try! 🔒 Access denied.',
+
+            'ls': `drwxr-xr-x  about/
+drwxr-xr-x  projects/
+drwxr-xr-x  skills/
+drwxr-xr-x  contact/
+-rw-r--r--  CV-Dandy.pdf`,
+
+            'cat CV-Dandy.pdf': 'Binary file. Use "download cv" to get a copy.',
+
+            'download cv': 'Initiating download...',
+
+            'hello': 'Hello there! 👋 Type "help" for available commands.',
+
+            'hi': 'Hey! 👋 Type "help" to see what I can do.',
+        };
+
+        const defaultResponse = (cmd) => `Command not found: ${cmd}
+Type 'help' to see available commands.`;
+
+        function addLine(content, isCommand = false) {
+            const line = document.createElement('div');
+            line.className = 'terminal-line';
+
+            if (isCommand) {
+                line.innerHTML = `<span class="terminal-prompt">visitor@dandy:~$</span> <span class="terminal-command">${content}</span>`;
+            } else {
+                line.innerHTML = `<pre class="terminal-output">${content}</pre>`;
+            }
+
+            terminalOutput.appendChild(line);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        function processCommand(cmd) {
+            const trimmedCmd = cmd.trim().toLowerCase();
+            addLine(cmd, true);
+
+            if (trimmedCmd === '') return;
+
+            const response = commands[trimmedCmd] || defaultResponse(trimmedCmd);
+
+            if (response === 'CLEAR') {
+                terminalOutput.innerHTML = '';
+                return;
+            }
+
+            if (response === 'SCROLL_TO_PROJECTS') {
+                addLine('Scrolling to projects...');
+                setTimeout(() => {
+                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                }, 500);
+                return;
+            }
+
+            if (trimmedCmd === 'download cv') {
+                addLine(response);
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = 'assets/docs/CV-Dandy.pdf';
+                    link.download = 'CV-Dandy.pdf';
+                    link.click();
+                    addLine('Download started! ✓');
+                }, 500);
+                return;
+            }
+
+            setTimeout(() => {
+                addLine(response);
+            }, 100);
+        }
+
+        terminalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                processCommand(terminalInput.value);
+                terminalInput.value = '';
+            }
+        });
+
+        // Focus terminal on click
+        document.querySelector('.terminal')?.addEventListener('click', () => {
+            terminalInput.focus();
+        });
+
+        // Initial message
+        setTimeout(() => {
+            addLine('Welcome to Dandy\'s Terminal Portfolio');
+            addLine('Type "help" for available commands.\n');
+        }, 500);
+    }
+
+    // ============================================
+    // HOLOGRAPHIC TEXT MOUSE TRACKING
+    // ============================================
+    const holoElements = document.querySelectorAll('.holo-interactive');
+
+    if (holoElements.length > 0) {
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const angle = Math.atan2(y - 0.5, x - 0.5) * (180 / Math.PI);
+
+            holoElements.forEach(el => {
+                el.style.setProperty('--holo-angle', `${angle + 90}deg`);
+            });
+        });
+    }
+
+    // ============================================
+    // MOBILE MENU TOGGLE
+    // ============================================
     const toggleBtn = document.querySelector('[data-collapse-toggle="navbar-mobile"]');
     const mobileMenu = document.getElementById('navbar-mobile');
 
@@ -11,101 +257,44 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('flex');
-
-            // Icon toggle
             const icon = toggleBtn.querySelector('i');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
-        // Close menu when clicking a link
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
                 mobileMenu.classList.remove('flex');
-                toggleBtn.querySelector('i').classList.remove('fa-times');
-                toggleBtn.querySelector('i').classList.add('fa-bars');
+                const icon = toggleBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
             });
         });
     }
 
-    // Contact Form Handling
-    const form = document.getElementById('contactForm');
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button[type="submit"]');
-            const btnOriginalContent = btn.innerHTML; // Store HTML (including icon)
+    // ============================================
+    // SCROLL ANIMATIONS (Intersection Observer)
+    // ============================================
+    const animateElements = document.querySelectorAll('[data-animate]');
 
-            btn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
-            btn.disabled = true;
-
-            const data = new FormData(form);
-
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    // Success state
-                    btn.innerHTML = '<span>Sent Successfully!</span> <i class="fas fa-check"></i>';
-                    btn.classList.add('bg-green-600', 'hover:bg-green-500');
-                    btn.classList.remove('bg-indigo-600', 'hover:bg-indigo-500');
-
-                    form.reset();
-
-                    // Reset button after 3 seconds
-                    setTimeout(() => {
-                        btn.innerHTML = btnOriginalContent;
-                        btn.classList.remove('bg-green-600', 'hover:bg-green-500');
-                        btn.classList.add('bg-indigo-600', 'hover:bg-indigo-500');
-                        btn.disabled = false;
-                    }, 3000);
-
-                } else {
-                    const errorData = await response.json();
-                    if (Object.hasOwn(errorData, 'errors')) {
-                        alert(errorData["errors"].map(error => error["message"]).join(", "));
-                    } else {
-                        alert('Oops! There was a problem submitting your form');
-                    }
-                    btn.innerHTML = btnOriginalContent;
-                    btn.disabled = false;
-                }
-            } catch (error) {
-                console.error(error);
-                alert('Oops! There was a problem submitting your form');
-                btn.innerHTML = btnOriginalContent;
-                btn.disabled = false;
+    const animateObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                animateObserver.unobserve(entry.target);
             }
         });
-    }
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    // Optional: Navbar slightly more opaque on scroll
-    const glassNav = document.querySelector('.glass-nav');
-    if (glassNav) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                glassNav.classList.add('bg-slate-900/80', 'backdrop-blur-xl');
-                glassNav.classList.remove('backdrop-blur-lg'); // Remove default lighter blur if needed
-            } else {
-                glassNav.classList.remove('bg-slate-900/80', 'backdrop-blur-xl');
-                glassNav.classList.add('backdrop-blur-lg');
-            }
-        });
-    }
+    animateElements.forEach(el => {
+        el.style.opacity = '0';
+        animateObserver.observe(el);
+    });
 
-    // Smooth Scroll for Anchor Links (fixes offset for fixed header)
+    // ============================================
+    // SMOOTH SCROLL WITH OFFSET
+    // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -113,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                const headerOffset = 100; // Adjust based on your header height
+                const headerOffset = 100;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -125,52 +314,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Hacker Decode Animation Logic
-    const hackTextElement = document.getElementById('hack-text');
-    if (hackTextElement) {
-        const phrases = ['Public Policy', 'Digital Gov', 'Smart Logistics', 'Systems Logic'];
-        let currentPhraseIndex = 0;
+    // ============================================
+    // CONTACT FORM
+    // ============================================
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const btnOriginal = btn.innerHTML;
 
-        const chars = '!<>-_\\/[]{}—=+*^?#________'; // Random chars for effect
+            btn.innerHTML = '<span>TRANSMITTING...</span>';
+            btn.disabled = true;
 
-        function resolvePhrase(element, phrase) {
-            return new Promise(resolve => {
-                let frame = 0;
-                const totalFrames = 40; // Duration of scramble
-                const originalText = phrase;
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
 
-                const interval = setInterval(() => {
-                    element.innerText = originalText.split('').map((char, index) => {
-                        if (index < frame / 3) { // Reveal characters progressively
-                            return originalText[index];
-                        }
-                        return chars[Math.floor(Math.random() * chars.length)];
-                    }).join('');
-
-                    if (frame >= totalFrames + (originalText.length * 3)) { // Ensure enough time
-                        clearInterval(interval);
-                        element.innerText = originalText;
-                        resolve();
-                    }
-                    frame++;
-                }, 40); // 40ms per frame
-            });
-        }
-
-        async function startLoop() {
-            while (true) {
-                await resolvePhrase(hackTextElement, phrases[currentPhraseIndex]);
-                await new Promise(r => setTimeout(r, 2000)); // Wait 2s visible
-                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                // Quick scramble out before next word could be added here if desired.
-                // For now, we just jump to decrypting the next word which looks cool.
+                if (response.ok) {
+                    btn.innerHTML = '<span style="color: var(--holo-1);">✓ TRANSMITTED</span>';
+                    form.reset();
+                    setTimeout(() => {
+                        btn.innerHTML = btnOriginal;
+                        btn.disabled = false;
+                    }, 3000);
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (error) {
+                btn.innerHTML = '<span style="color: #ff5f56;">✗ ERROR</span>';
+                setTimeout(() => {
+                    btn.innerHTML = btnOriginal;
+                    btn.disabled = false;
+                }, 2000);
             }
-        }
-
-        startLoop();
+        });
     }
 
-    // Certificate Modal Logic
+    // ============================================
+    // CERTIFICATE MODAL
+    // ============================================
     const modal = document.getElementById('certificateModal');
     const modalBody = document.getElementById('modalBody');
     const modalTitle = document.getElementById('modalTitle');
@@ -178,7 +364,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadLink = document.getElementById('downloadLink');
 
     if (modal) {
-        // Open Modal
         document.querySelectorAll('.view-certificate').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -186,61 +371,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 const fileType = link.getAttribute('data-type');
                 const title = link.getAttribute('data-title');
 
-                // Update Title
-                modalTitle.innerHTML = `<i class="fas fa-certificate text-primary"></i> <span>${title}</span>`;
-                
-                // Update Download Link
+                modalTitle.innerHTML = `<span class="text-holo-1">&gt;</span> ${title}`;
                 downloadLink.href = fileUrl;
+                modalBody.innerHTML = '<div class="text-holo-1">Loading...</div>';
 
-                // Clear previous content
-                modalBody.innerHTML = '<div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary absolute"></div>';
-
-                // Show Modal
                 modal.classList.remove('hidden');
-                // Trigger reflow
-                void modal.offsetWidth;
-                modal.classList.remove('opacity-0');
-                modal.querySelector('#modalContent').classList.remove('scale-95');
-                modal.querySelector('#modalContent').classList.add('scale-100');
+                modal.classList.add('flex');
 
-                // Load Content
                 setTimeout(() => {
                     if (fileType === 'pdf') {
-                        modalBody.innerHTML = `<iframe src="${fileUrl}" class="w-full h-full border-0" title="Certificate Viewer"></iframe>`;
+                        modalBody.innerHTML = `<iframe src="${fileUrl}" class="w-full h-full border-0"></iframe>`;
                     } else {
-                        modalBody.innerHTML = `<img src="${fileUrl}" class="max-w-full max-h-full object-contain" alt="Certificate">`;
+                        modalBody.innerHTML = `<img src="${fileUrl}" class="max-w-full max-h-full object-contain" alt="${title}">`;
                     }
-                }, 300); // Small delay for animation
+                }, 300);
             });
         });
 
-        // Close Modal Function
         const closeModalFunc = () => {
-             modal.classList.add('opacity-0');
-             modal.querySelector('#modalContent').classList.remove('scale-100');
-             modal.querySelector('#modalContent').classList.add('scale-95');
-             
-             setTimeout(() => {
-                 modal.classList.add('hidden');
-                 modalBody.innerHTML = ''; // Clear heavy content like iframes
-             }, 300);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            modalBody.innerHTML = '';
         };
 
-        closeModal.addEventListener('click', closeModalFunc);
-
-        // Close on backdrop click
+        closeModal?.addEventListener('click', closeModalFunc);
         modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModalFunc();
-            }
+            if (e.target === modal) closeModalFunc();
         });
-
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModalFunc();
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModalFunc();
+        });
+    }
+
+    // ============================================
+    // NAVBAR SCROLL EFFECT
+    // ============================================
+    const nav = document.querySelector('.nav-cyber');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.8)';
             }
         });
     }
+
+    // ============================================
+    // GLITCH ON HOVER (for elements with data-text)
+    // ============================================
+    document.querySelectorAll('.glitch').forEach(el => {
+        if (!el.dataset.text) {
+            el.dataset.text = el.textContent;
+        }
+    });
 
 });

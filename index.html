@@ -4,51 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dandy Huffaz Ichlamsyah | Portfolio</title>
+    <title>Dandy Huffaz Ichlamsyah | Systems Architect</title>
     <meta name="description"
-        content="Portfolio of Dandy Huffaz Ichlamsyah - Bridging Systems Information & Public Administration. Expert in Software Development & Operational Logistics.">
-    <meta name="keywords"
-        content="Software Developer Jakarta, Sistem Informasi UBSI, Administrasi Negara Indonesia, Dandy Huffaz Ichlamsyah, Portfolio">
+        content="Portfolio of Dandy Huffaz Ichlamsyah - Systems Architect bridging Technology & Governance.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#06b6d4', // Cyan-500 (Systems/Tech)
-                        secondary: '#f59e0b', // Amber-500 (Governance/Admin)
-                        dark: '#020617', // Slate-950 (Main Background)
-                        surface: '#0f172a', // Slate-900 (Card Background)
-                        surfaceHighlight: '#1e293b', // Slate-800
-                        textMain: '#f8fafc', // Slate-50
-                        textMuted: '#94a3b8', // Slate-400
+                        'holo-1': '#00ff88',
+                        'holo-2': '#ff00ff',
+                        'holo-3': '#00ffff',
+                        'holo-4': '#ff6b00',
+                        'bg-deep': '#0a0a0a',
+                        'bg-terminal': '#0d1117',
+                        'bg-card': '#161b22',
+                        'border-dim': '#21262d',
+                        'border-bright': '#30363d',
+                        'text-bright': '#e6edf3',
+                        'text-dim': '#7d8590',
                     },
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'], // Added for technical details
-                        body: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+                        sans: ['Inter', 'SF Pro Display', 'sans-serif'],
                     },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'shimmer': 'shimmer 2.5s linear infinite',
-                        'scan': 'scan 4s linear infinite',
-                    },
-                    keyframes: {
-                        shimmer: {
-                            '0%': { backgroundPosition: '-1000px 0' },
-                            '100%': { backgroundPosition: '1000px 0' }
-                        },
-                        scan: {
-                            '0%': { backgroundPosition: '0% 0%' },
-                            '100%': { backgroundPosition: '0% 100%' }
-                        }
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
-                    }
                 }
             }
         }
@@ -58,11 +40,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -71,933 +50,788 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="bg-dark text-textMain font-body antialiased selection:bg-cyan-500 selection:text-white overflow-x-hidden">
+<body class="bg-bg-deep text-text-bright font-sans antialiased overflow-x-hidden">
+
+    <!-- CRT Effects -->
+    <div class="scanlines"></div>
+    <div class="screen-glow"></div>
+    <div class="cursor-main"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 left-0 border-b border-surfaceHighlight solid-nav">
-        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-bold font-sans tracking-tighter text-white flex items-center gap-2">
+    <nav class="nav-cyber">
+        <div class="container mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
                 <div
-                    class="w-10 h-10 bg-primary/10 border border-primary/20 rounded flex items-center justify-center text-primary">
-                    <span class="font-mono font-bold text-lg">DH</span>
+                    class="w-10 h-10 border border-holo-1 flex items-center justify-center font-mono font-bold text-holo-1 group-hover:bg-holo-1 group-hover:text-bg-deep transition-all">
+                    DH
                 </div>
-                <span>Dandy<span class="text-primary"> Huffaz Ichlamsyah</span></span>
+                <span class="font-mono text-sm text-text-dim hidden sm:block">
+                    <span class="text-holo-1">dandy</span>@portfolio:~$
+                </span>
             </a>
 
-            <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-textMuted">
-                <li><a href="#about" class="hover:text-primary transition-colors duration-200">About</a></li>
-                <li><a href="#experience" class="hover:text-primary transition-colors duration-200">Experience</a></li>
-                <li><a href="#projects" class="hover:text-primary transition-colors duration-200">Work</a></li>
-                <li><a href="#publications" class="hover:text-primary transition-colors duration-200">Research</a></li>
-                <li><a href="#certificates" class="hover:text-primary transition-colors duration-200">Certificates</a>
-                </li>
+            <ul class="hidden md:flex items-center gap-8">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#publications" class="nav-link">Research</a></li>
+                <li><a href="#certificates" class="nav-link">Credentials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
 
-            <div class="hidden md:flex items-center gap-4">
-                <a href="#contact"
-                    class="px-6 py-2.5 bg-primary hover:bg-cyan-400 text-dark font-bold rounded text-sm transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]">
-                    LET'S TALK
-                </a>
+            <div class="hidden md:block">
+                <a href="#contact" class="btn-cyber text-sm">> CONNECT</a>
             </div>
 
-            <button data-collapse-toggle="navbar-mobile" type="button"
-                class="md:hidden text-textMuted hover:text-white text-2xl">
+            <button data-collapse-toggle="navbar-mobile" class="md:hidden text-text-dim hover:text-holo-1 text-xl">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="navbar-mobile"
-            class="hidden absolute top-20 left-0 w-full bg-surface border-b border-surfaceHighlight flex-col p-6 gap-4 shadow-2xl">
-            <a href="#about" class="text-textMuted hover:text-white py-3 border-b border-white/5">About</a>
-            <a href="#experience" class="text-textMuted hover:text-white py-3 border-b border-white/5">Experience</a>
-            <a href="#projects" class="text-textMuted hover:text-white py-3 border-b border-white/5">Work</a>
-            <a href="#publications" class="text-textMuted hover:text-white py-3 border-b border-white/5">Research</a>
-            <a href="#certificates"
-                class="text-textMuted hover:text-white py-3 border-b border-white/5">Certificates</a>
-            <a href="#contact" class="text-primary font-bold py-3">Let's Talk</a>
+            class="hidden absolute top-16 left-0 w-full bg-bg-terminal border-b border-border-dim flex-col p-6 gap-4">
+            <a href="#about" class="nav-link py-2">About</a>
+            <a href="#education" class="nav-link py-2">Education</a>
+            <a href="#experience" class="nav-link py-2">Experience</a>
+            <a href="#projects" class="nav-link py-2">Projects</a>
+            <a href="#publications" class="nav-link py-2">Research</a>
+            <a href="#certificates" class="nav-link py-2">Credentials</a>
+            <a href="#contact" class="text-holo-1 font-mono py-2">> Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <!-- Technical Background -->
-        <div class="absolute inset-0 z-0 pointer-events-none">
-            <div class="absolute inset-0 bg-grid-pattern opacity-[0.05]"></div>
-            <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent">
-            </div>
-            <div
-                class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent">
-            </div>
-        </div>
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <section class="min-h-screen flex items-center relative overflow-hidden pt-20 pb-12">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
 
-        <div class="container mx-auto px-6 relative z-10 w-full max-w-7xl">
-            <div class="flex flex-col items-center text-center">
+                <!-- Left: Profile & Text -->
+                <div>
+                    <div class="font-mono text-xs text-text-dim mb-6" data-animate>
+                        <span class="text-holo-1">></span> STATUS: <span class="text-holo-1">OPEN TO
+                            OPPORTUNITIES</span>
+                    </div>
 
-                <!-- Status Badge -->
-                <div class="inline-flex items-center gap-3 px-4 py-2 rounded border border-primary/20 bg-primary/5 text-primary text-xs font-mono font-bold tracking-wider mb-8"
-                    data-aos="fade-down">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
-                    SYSTEMS // GOVERNANCE // LOGISTICS
-                </div>
-
-                <!-- Main Heading -->
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-sans font-bold mb-8 leading-[1.1] tracking-tight"
-                    data-aos="fade-up" data-aos-delay="100">
-                    Bridging <span class="gradient-text-primary">Systems</span><br>
-                    & <span id="hack-text" class="text-secondary hacker-text"></span>
-                </h1>
-
-                <!-- Subheading -->
-                <p class="text-lg md:text-xl text-textMuted mb-12 max-w-3xl leading-relaxed font-light"
-                    data-aos="fade-up" data-aos-delay="200">
-                    I engineer robust <strong class="text-gray-100">digital infrastructures</strong> tailored for the
-                    complexities of <strong class="text-gray-100">public administration</strong>. A hybrid professional
-                    merging technical precision with organizational insight.
-                </p>
-
-                <!-- CTAs -->
-                <div class="flex flex-col sm:flex-row gap-5 mb-20" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#projects"
-                        class="group px-8 py-4 bg-primary hover:bg-cyan-400 text-dark font-bold rounded transition-all shadow-[0_0_20px_rgba(6,182,212,0.2)] hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] flex items-center gap-3">
-                        EXPLORE WORK <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="assets/docs/CV-Dandy.pdf" download
-                        class="px-8 py-4 bg-transparent border border-surfaceHighlight hover:border-textMuted text-white font-semibold rounded transition-all flex items-center gap-2">
-                        <i class="fas fa-download text-textMuted"></i> DOWNLOAD CV
-                    </a>
-                </div>
-
-                <!-- Hero Image / Visual -->
-                <div class="relative w-full max-w-4xl mx-auto" data-aos="zoom-in" data-aos-delay="400">
-                    <!-- Tech Borders -->
-                    <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-primary/30"></div>
-                    <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-secondary/30"></div>
-
-                    <div
-                        class="relative h-[400px] md:h-[500px] w-full bg-surface border border-surfaceHighlight rounded overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent z-10">
-                        </div>
-
-                        <!-- Image -->
-                        <img src="assets/img/profile.png"
-                            onerror="this.src='https://ui-avatars.com/api/?name=Dandy+Huffaz&background=0f172a&color=fff'"
-                            alt="Dandy Huffaz"
-                            class="w-full h-full object-cover object-top opacity-100 transition-all duration-700">
-
-                        <!-- Floating HUD Elements -->
-                        <div class="absolute bottom-8 left-8 z-20 hidden md:block">
-                            <div class="flex items-center gap-4">
-                                <div class="text-left">
-                                    <p class="text-xs text-primary font-mono mb-1">CURRENT STATUS</p>
-                                    <p class="text-white font-bold text-lg">OPEN TO WORK</p>
-                                </div>
-                                <div class="h-8 w-px bg-surfaceHighlight"></div>
-                                <div class="text-left">
-                                    <p class="text-xs text-secondary font-mono mb-1">LOCATION</p>
-                                    <p class="text-white font-bold text-lg">JAKARTA, ID</p>
-                                </div>
+                    <!-- Profile Image -->
+                    <div class="flex items-center gap-6 mb-8" data-animate>
+                        <div class="relative">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-holo-1 p-1">
+                                <img src="assets/img/profile.png" alt="Dandy Huffaz Ichlamsyah"
+                                    class="w-full h-full object-cover rounded-full">
+                            </div>
+                            <div
+                                class="absolute -bottom-1 -right-1 w-6 h-6 bg-holo-1 rounded-full flex items-center justify-center">
+                                <i class="fas fa-check text-bg-deep text-xs"></i>
                             </div>
                         </div>
+                        <div>
+                            <h1 class="text-3xl md:text-4xl font-bold holo-text mb-1">Dandy Huffaz Ichlamsyah</h1>
+                            <div class="font-mono text-text-dim flex flex-wrap gap-2">
+                                <span class="text-holo-2">[</span>Systems Architect<span class="text-holo-2">]</span>
+                                <span class="text-holo-4">//</span>
+                                <span class="text-holo-2">[</span>Public Admin<span class="text-holo-2">]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-text-dim leading-relaxed mb-6" data-animate>
+                        Lulusan <span class="text-holo-1">Politeknik APP Jakarta</span> yang saat ini menempuh
+                        <span class="text-holo-3">Double Degree</span> di Sistem Informasi (UBSI) dan Administrasi
+                        Negara (UT).
+                        Memiliki keahlian hibrida dalam pengembangan perangkat lunak dan manajemen rantai pasok.
+                    </p>
+                    <p class="text-text-dim leading-relaxed mb-8" data-animate>
+                        Berpengalaman memimpin tim proyek TI serta memiliki kompetensi teknis dalam operasional logistik
+                        (Warehouse & Delivery) melalui pengalaman magang di perusahaan logistik terkemuka.
+                    </p>
+
+                    <!-- Location -->
+                    <div class="flex items-center gap-3 text-text-dim font-mono text-sm mb-8" data-animate>
+                        <i class="fas fa-map-marker-alt text-holo-1"></i>
+                        <span>Jakarta Timur, DKI Jakarta</span>
+                    </div>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap gap-4" data-animate>
+                        <a href="#projects" class="btn-cyber">
+                            EXPLORE WORK <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="assets/docs/CV-Dandy.pdf" download class="btn-cyber btn-outline">
+                            <i class="fas fa-download mr-2"></i> GET CV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Terminal -->
+                <div class="terminal" data-animate>
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                        <span class="terminal-title">dandy@portfolio — bash</span>
+                    </div>
+                    <div class="terminal-body" id="terminal-output"></div>
+                    <div class="border-t border-border-dim p-3 flex items-center">
+                        <span class="terminal-prompt">visitor@dandy:~$</span>
+                        <input type="text" id="terminal-input" class="terminal-input"
+                            placeholder="type 'help' for commands..." autocomplete="off">
+                        <span class="terminal-cursor"></span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="absolute inset-0 opacity-[0.02]"
+            style="background-image: linear-gradient(#21262d 1px, transparent 1px), linear-gradient(90deg, #21262d 1px, transparent 1px); background-size: 50px 50px;">
+        </div>
     </section>
 
-    <!-- About / Stats Bento Grid -->
+    <!-- ============================================ -->
+    <!-- ABOUT SECTION -->
+    <!-- ============================================ -->
+    <section id="about" class="py-24 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="section-header" data-animate>
+                <span class="section-number">01</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
 
-
-    <!-- About Section (Profile) -->
-    <section id="about" class="py-24 relative bg-darker">
-        <div class="container mx-auto px-6 max-w-7xl relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center text-white font-sans" data-aos="fade-up">
-                About Me</h2>
-
-            <div class="solid-card p-8 md:p-12 rounded-2xl border border-surfaceHighlight bg-surface mb-20"
-                data-aos="fade-up">
-                <p class="text-textMuted leading-loose text-lg text-justify">
-                    Lulusan Politeknik APP Jakarta yang saat ini menempuh Double Degree di Sistem Informasi (UBSI) dan
-                    Administrasi Negara (UT). Memiliki keahlian hibrida dalam pengembangan perangkat lunak (Software
-                    Development) dan manajemen rantai pasok (Supply Chain). Berpengalaman memimpin tim proyek TI serta
-                    memiliki kompetensi teknis dalam operasional logistik (Warehouse & Delivery) melalui pengalaman
-                    magang di perusahaan logistik terkemuka. Siap berkontribusi dalam peran yang mengintegrasikan
-                    efisiensi teknologi dan operasional.
-                </p>
-                <div class="mt-8 flex flex-wrap gap-4 justify-center">
-                    <a href="https://linkedin.com/in/dandy-huffaz-ichlamsyah-563211190" target="_blank"
-                        class="inline-flex items-center gap-2 text-primary font-bold hover:text-white transition-colors">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <span class="text-surfaceHighlight">|</span>
-                    <p class="text-textMuted"><i class="fas fa-map-marker-alt text-secondary mr-2"></i>Jakarta Timur,
-                        DKI Jakarta</p>
+            <div class="card-cyber p-8" data-animate>
+                <div class="font-mono text-holo-1 text-sm mb-6">> cat about.txt</div>
+                <div class="space-y-4 text-text-dim leading-relaxed">
+                    <p>
+                        Lulusan <span class="text-holo-1">Politeknik APP Jakarta</span> yang saat ini menempuh
+                        <span class="text-holo-3">Double Degree</span> di <span class="text-text-bright">Sistem
+                            Informasi (UBSI)</span>
+                        dan <span class="text-text-bright">Administrasi Negara (UT)</span>.
+                    </p>
+                    <p>
+                        Memiliki keahlian hibrida dalam <span class="text-holo-2">pengembangan perangkat lunak (Software
+                            Development)</span>
+                        dan <span class="text-holo-4">manajemen rantai pasok (Supply Chain)</span>.
+                    </p>
+                    <p>
+                        Berpengalaman memimpin tim proyek TI serta memiliki kompetensi teknis dalam operasional logistik
+                        (Warehouse & Delivery) melalui pengalaman magang di perusahaan logistik terkemuka.
+                    </p>
+                    <p class="text-holo-1">
+                        Siap berkontribusi dalam peran yang mengintegrasikan efisiensi teknologi dan operasional.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-24 relative bg-dark">
-        <div class="container mx-auto px-6 max-w-6xl relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center text-white font-sans" data-aos="fade-up">
-                Education</h2>
+    <!-- ============================================ -->
+    <!-- EDUCATION SECTION -->
+    <!-- ============================================ -->
+    <section id="education" class="py-24 bg-bg-terminal">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="section-header" data-animate>
+                <span class="section-number">02</span>
+                <h2 class="section-title">Education</h2>
+                <div class="section-line"></div>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-6">
                 <!-- UBSI -->
-                <div class="solid-card p-8 rounded-xl border-l-4 border-l-primary hover:-translate-y-2 transition-transform"
-                    data-aos="fade-up" data-aos-delay="0">
-                    <div class="text-primary font-mono text-xs mb-2">2023 - 2027</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Universitas Bina Sarana Informatika</h3>
-                    <p class="text-textMuted text-sm mb-4">Sistem Informasi</p>
-                    <p class="text-slate-500 text-xs">Fokus: Pengembangan Perangkat Lunak, Sistem Basis Data, Manajemen
-                        Proyek TI.</p>
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="font-bold text-text-bright text-lg mb-1">Universitas Bina Sarana Informatika</h3>
+                    <p class="text-holo-1 font-mono text-sm mb-3">Sistem Informasi</p>
+                    <div class="text-text-dim text-sm">
+                        <p class="font-mono text-xs text-holo-3 mb-2">> focus_areas:</p>
+                        <ul class="space-y-1 ml-4">
+                            <li>├── Pengembangan Perangkat Lunak</li>
+                            <li>├── Sistem Basis Data</li>
+                            <li>└── Manajemen Proyek TI</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- UT -->
-                <div class="solid-card p-8 rounded-xl border-l-4 border-l-secondary hover:-translate-y-2 transition-transform"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-secondary font-mono text-xs mb-2">2023 - 2027</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Universitas Terbuka</h3>
-                    <p class="text-textMuted text-sm mb-4">Administrasi Negara</p>
-                    <p class="text-slate-500 text-xs">Fokus: Manajemen Publik, Kebijakan Publik, Administrasi
-                        Pembangunan.</p>
-                </div>
-
-                <!-- APP -->
-                <div class="solid-card p-8 rounded-xl border-l-4 border-l-emerald-500 hover:-translate-y-2 transition-transform"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-emerald-500 font-mono text-xs mb-2">2021 - 2022</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Politeknik APP Jakarta (Kementerian Perindustrian RI)
-                    </h3>
-                    <p class="text-textMuted text-sm mb-1">D1 Distribusi & Delivery</p>
-                    <p class="text-white text-xs font-bold mb-3">IPK: 3.95 / 4.00 (Cum Laude)</p>
-                    <p class="text-slate-500 text-xs">Tugas Akhir: Penerapan Sistem Informasi Delivery pada PT TIKI
-                        Jalur Nugraha Ekakurir.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section (Timeline) -->
-    <section id="experience" class="py-24 relative bg-darker border-t border-surfaceHighlight">
-        <div class="container mx-auto px-6 max-w-6xl relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-20 text-center text-white font-sans" data-aos="fade-up">
-                Experience</h2>
-
-            <div class="relative space-y-12">
-                <!-- Vertical Line -->
-                <div
-                    class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-surfaceHighlight transform md:-translate-x-1/2">
-                </div>
-
-                <!-- Item 1: Event Coordinator -->
-                <div class="relative flex flex-col md:flex-row gap-8 items-start group" data-aos="fade-up">
-                    <div class="pl-12 md:pl-0 md:w-1/2 md:text-right md:pr-12 order-2 md:order-1 pt-2">
-                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-secondary transition-colors">Event
-                            Coordinator Assistant</h3>
-                        <p class="text-primary text-sm font-mono mb-4">Freelance</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-4">
-                            Mendukung Project Officer dalam pelaksanaan acara, mengoordinasikan talent, dan memastikan
-                            kelengkapan perlengkapan acara. Menjaga linimasa acara dan komunikasi antar tim di lapangan
-                            agar berjalan lancar.
-                        </p>
-                    </div>
-                    <div
-                        class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-dark border-2 border-secondary rounded-full z-10 mt-3 shadow-[0_0_0_4px_rgba(2,6,23,1)]">
-                    </div>
-                    <div class="pl-12 md:pl-12 md:w-1/2 order-1 md:order-2">
-                        <span
-                            class="inline-block px-3 py-1 bg-surfaceHighlight text-xs font-mono text-secondary rounded border border-secondary/20">Feb
-                            2025 - Mar 2025</span>
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-2 text-3xl mb-4"><i class="fas fa-landmark"></i></div>
+                    <h3 class="font-bold text-text-bright text-lg mb-1">Universitas Terbuka</h3>
+                    <p class="text-holo-2 font-mono text-sm mb-3">Administrasi Negara</p>
+                    <div class="text-text-dim text-sm">
+                        <p class="font-mono text-xs text-holo-3 mb-2">> focus_areas:</p>
+                        <ul class="space-y-1 ml-4">
+                            <li>├── Manajemen Publik</li>
+                            <li>├── Kebijakan Publik</li>
+                            <li>└── Administrasi Pembangunan</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Item 2: Admin Event -->
-                <div class="relative flex flex-col md:flex-row gap-8 items-start group" data-aos="fade-up">
-                    <div class="pl-12 md:pl-0 md:w-1/2 md:text-right md:pr-12 order-2 md:order-1 md:hidden"></div>
-                    <div class="hidden md:block md:w-1/2 md:text-right md:pr-12 order-1">
-                        <span
-                            class="inline-block px-3 py-1 bg-surfaceHighlight text-xs font-mono text-primary rounded border border-primary/20">Aug
-                            2023 - Oct 2023</span>
-                    </div>
-
-                    <div
-                        class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-dark border-2 border-primary rounded-full z-10 mt-3 shadow-[0_0_0_4px_rgba(2,6,23,1)]">
-                    </div>
-
-                    <div class="pl-12 md:pl-12 md:w-1/2 order-2">
-                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">Admin
-                            Event</h3>
-                        <p class="text-primary text-sm font-mono mb-4">Freelance</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-4">
-                            Mengatur kegiatan komunikasi dan promosi untuk meningkatkan kesadaran acara. Membuat laporan
-                            evaluasi untuk mengukur keberhasilan acara dan memberikan rekomendasi.
-                        </p>
-                        <div class="md:hidden mt-2">
-                            <span
-                                class="inline-block px-3 py-1 bg-surfaceHighlight text-xs font-mono text-primary rounded border border-primary/20">Aug
-                                2023 - Oct 2023</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 3: JNE -->
-                <div class="relative flex flex-col md:flex-row gap-8 items-start group" data-aos="fade-up">
-                    <div class="pl-12 md:pl-0 md:w-1/2 md:text-right md:pr-12 order-2 md:order-1 pt-2">
-                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-secondary transition-colors">
-                            Magang Staf Operasional & Logistik</h3>
-                        <p class="text-primary text-sm font-mono mb-4">PT Tiki Jalur Nugraha Ekakurir (JNE)</p>
-                        <div class="space-y-4 mt-4">
-                            <div>
-                                <h4 class="text-white font-semibold text-sm mb-1">Manajemen Logistik (Fulfillment)</h4>
-                                <p class="text-textMuted text-sm leading-relaxed">
-                                    Mengelola operasional gudang, inbound, outbound, dan stock opname.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-sm mb-1">Administrasi & Kontrol</h4>
-                                <p class="text-textMuted text-sm leading-relaxed">
-                                    Bertugas di Control Tower memonitor pergerakan kiriman dan menangani klaim.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-sm mb-1">Gateway Operations</h4>
-                                <p class="text-textMuted text-sm leading-relaxed">
-                                    Melakukan penyortiran kiriman, manifesting, bagging, dan pemeriksaan X-Ray.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-dark border-2 border-secondary rounded-full z-10 mt-3 shadow-[0_0_0_4px_rgba(2,6,23,1)]">
-                    </div>
-                    <div class="pl-12 md:pl-12 md:w-1/2 order-1 md:order-2">
-                        <span
-                            class="inline-block px-3 py-1 bg-surfaceHighlight text-xs font-mono text-secondary rounded border border-secondary/20">Mei
-                            2022 - Aug 2022</span>
-                    </div>
-                </div>
-
-                <!-- Item 4: CitoXpress -->
-                <div class="relative flex flex-col md:flex-row gap-8 items-start group" data-aos="fade-up">
-                    <div class="hidden md:block md:w-1/2 md:text-right md:pr-12 order-1">
-                        <span
-                            class="inline-block px-3 py-1 bg-surfaceHighlight text-xs font-mono text-primary rounded border border-primary/20">Nov
-                            2021 - Feb 2022</span>
-                    </div>
-                    <div
-                        class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-dark border-2 border-primary rounded-full z-10 mt-3 shadow-[0_0_0_4px_rgba(2,6,23,1)]">
-                    </div>
-                    <div class="pl-12 md:pl-12 md:w-1/2 order-2">
-                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">Magang
-                            Staf Distribusi & Pergudangan</h3>
-                        <p class="text-primary text-sm font-mono mb-4">PT Citosarana Jasapratama (CitoXpress)</p>
-                        <div class="space-y-4 mt-4">
-                            <div>
-                                <h4 class="text-white font-semibold text-sm mb-1">Warehouse Management (Danone)</h4>
-                                <p class="text-textMuted text-sm leading-relaxed">
-                                    Mengelola gudang distribusi produk Danone.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-sm mb-1">Processing (EDKP)</h4>
-                                <p class="text-textMuted text-sm leading-relaxed">
-                                    Input data kiriman, pembuatan connote, dan penyortiran barang.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-sm mb-1">Admin Operasional (AO)</h4>
-                                <p class="text-textMuted text-sm leading-relaxed">
-                                    Memproses Proof of Delivery (POD) dan menangani pelacakan kiriman.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pl-12 md:hidden mt-2 order-3">
-                        <span
-                            class="inline-block px-3 py-1 bg-surfaceHighlight text-xs font-mono text-primary rounded border border-primary/20">Nov
-                            2021 - Feb 2022</span>
+                <!-- Politeknik APP -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-3 text-3xl mb-4"><i class="fas fa-truck"></i></div>
+                    <h3 class="font-bold text-text-bright text-lg mb-1">Politeknik APP Jakarta</h3>
+                    <p class="text-holo-3 font-mono text-sm mb-1">D1 Distribusi & Delivery</p>
+                    <p class="text-holo-1 font-mono text-xs mb-3">IPK: 3.95 / 4.00 (Cum Laude)</p>
+                    <div class="text-text-dim text-sm">
+                        <p class="font-mono text-xs text-holo-4 mb-2">> tugas_akhir:</p>
+                        <p class="text-xs italic">"Penerapan Sistem Informasi Delivery pada PT TIKI Jalur Nugraha
+                            Ekakurir"</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 relative bg-dark">
-        <div class="container mx-auto px-6 max-w-7xl relative z-10">
-            <div class="flex flex-col items-center mb-20 text-center" data-aos="fade-up">
-                <p class="text-primary font-mono text-sm tracking-widest mb-2">03. PORTFOLIO</p>
-                <h2 class="text-3xl md:text-5xl font-bold text-white font-sans">Selected Works</h2>
+    <!-- ============================================ -->
+    <!-- EXPERIENCE SECTION -->
+    <!-- ============================================ -->
+    <section id="experience" class="py-24">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="section-header" data-animate>
+                <span class="section-number">03</span>
+                <h2 class="section-title">Experience</h2>
+                <div class="section-line"></div>
             </div>
 
-            <div class="space-y-24">
-                <!-- Project 1: Pinpin -->
-                <div class="group relative" data-aos="fade-up">
-                    <div
-                        class="solid-card rounded-2xl overflow-hidden flex flex-col lg:flex-row group-hover:border-primary/50 transition-all duration-500">
-                        <!-- Project Visual (Left/Top) -->
-                        <div
-                            class="lg:w-3/5 h-[400px] lg:h-[500px] relative overflow-hidden bg-surfaceHighlight mx-4 mt-4 lg:mx-0 lg:mt-0 lg:ml-0 rounded-t-xl lg:rounded-tr-none lg:rounded-l-2xl border-r border-surfaceHighlight">
-                            <div
-                                class="absolute inset-0 bg-surface/20 z-10 group-hover:bg-transparent transition-colors duration-500">
-                            </div>
-                            <img src="assets/img/projects/pinpin.jpeg"
-                                onerror="this.src='https://placehold.co/800x600/1e293b/475569?text=Pinpin+Platform+Visual'"
-                                alt="Pinpin E-Learning"
-                                class="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700 ease-out filter grayscale group-hover:grayscale-0">
-
-                            <!-- Floating Tech Stack -->
-                            <div class="absolute bottom-6 left-6 z-20 flex flex-wrap gap-2">
-                                <span
-                                    class="bg-dark/90 backdrop-blur text-primary border border-primary/30 px-3 py-1.5 text-xs font-bold rounded uppercase tracking-wide">CodeIgniter
-                                    4</span>
-                                <span
-                                    class="bg-dark/90 backdrop-blur text-secondary border border-secondary/30 px-3 py-1.5 text-xs font-bold rounded uppercase tracking-wide">MySQL</span>
-                            </div>
+            <div class="space-y-6">
+                <!-- JNE -->
+                <div class="card-cyber p-8" data-animate>
+                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-text-bright">Magang Staf Operasional & Logistik</h3>
+                            <div class="text-holo-1 font-mono text-sm">PT Tiki Jalur Nugraha Ekakurir (JNE)</div>
                         </div>
-
-                        <!-- Project Details (Right/Bottom) -->
-                        <div class="lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center relative">
-                            <div class="mb-6">
-                                <span class="text-primary font-mono text-xs font-bold tracking-wider mb-2 block">PROJECT
-                                    MANAGER & LEAD DEV</span>
-                                <h3 class="text-3xl font-bold text-white leading-tight">Pinpin E-Learning Platform</h3>
-                            </div>
-
-                            <div class="mb-8 p-4 bg-surfaceHighlight rounded border border-surfaceHighlight">
-                                <p class="text-secondary text-sm font-semibold flex items-center gap-2">
-                                    <i class="fas fa-trophy"></i> 2nd Place Winner
-                                </p>
-                                <p class="text-textMuted text-xs mt-1">IT Bootcamp Software Dev Batch IV (2025)</p>
-                            </div>
-
-                            <p class="text-textMuted text-base leading-relaxed mb-8">
-                                A comprehensive gamified learning system designed to increase student engagement. Led a
-                                7-person team through the full SDLC, implementing real-time leaderboards (XP System) and
-                                automated student monitoring.
-                            </p>
-
-                            <a href="https://drive.google.com/file/d/1Vhgz-8rDfugWunLkeXvNswDV5IbOw8VV/view?usp=sharing"
-                                target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-3 text-white font-bold group/link hover:text-primary transition-colors">
-                                View Case Study <i
-                                    class="fas fa-arrow-right transform group-hover/link:translate-x-1 transition-transform"></i>
-                            </a>
+                        <div class="text-text-dim font-mono text-sm mt-2 md:mt-0">
+                            <i class="fas fa-calendar-alt mr-1"></i> Internship
                         </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4 text-text-dim text-sm">
+                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
+                            <p class="text-holo-1 font-mono text-xs mb-2">> Manajemen Logistik (Fulfillment)</p>
+                            <p>Mengelola operasional gudang, inbound, outbound, dan stock opname.</p>
+                        </div>
+                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
+                            <p class="text-holo-2 font-mono text-xs mb-2">> Administrasi & Kontrol</p>
+                            <p>Bertugas di Control Tower memonitor pergerakan kiriman dan menangani klaim.</p>
+                        </div>
+                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
+                            <p class="text-holo-3 font-mono text-xs mb-2">> Gateway Operations</p>
+                            <p>Melakukan penyortiran kiriman, manifesting, bagging, dan pemeriksaan X-Ray.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CitoXpress -->
+                <div class="card-cyber p-8" data-animate>
+                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-text-bright">Magang Staf Distribusi & Pergudangan</h3>
+                            <div class="text-holo-3 font-mono text-sm">PT Citosarana Jasapratama (CitoXpress)</div>
+                        </div>
+                        <div class="text-text-dim font-mono text-sm mt-2 md:mt-0">
+                            <i class="fas fa-calendar-alt mr-1"></i> Internship
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4 text-text-dim text-sm">
+                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
+                            <p class="text-holo-1 font-mono text-xs mb-2">> Warehouse Management (Danone)</p>
+                            <p>Mengelola gudang distribusi produk Danone.</p>
+                        </div>
+                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
+                            <p class="text-holo-2 font-mono text-xs mb-2">> Processing (EDKP)</p>
+                            <p>Input data kiriman, pembuatan connote, dan penyortiran barang.</p>
+                        </div>
+                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
+                            <p class="text-holo-4 font-mono text-xs mb-2">> Admin Operasional (AO)</p>
+                            <p>Memproses Proof of Delivery (POD) dan menangani pelacakan kiriman.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Coordinator -->
+                <div class="card-cyber p-8" data-animate>
+                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-text-bright">Event Coordinator Assistant</h3>
+                            <div class="text-holo-2 font-mono text-sm">Freelance</div>
+                        </div>
+                    </div>
+                    <ul class="text-text-dim space-y-2 text-sm">
+                        <li class="flex gap-2"><span class="text-holo-1">></span> Mendukung Project Officer dalam
+                            pelaksanaan acara</li>
+                        <li class="flex gap-2"><span class="text-holo-1">></span> Mengkoordinasikan talent dan
+                            memastikan kelengkapan perlengkapan acara</li>
+                        <li class="flex gap-2"><span class="text-holo-1">></span> Menjaga linimasa acara dan komunikasi
+                            antar tim di lapangan</li>
+                    </ul>
+                </div>
+
+                <!-- Admin Event -->
+                <div class="card-cyber p-8" data-animate>
+                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-text-bright">Admin Event</h3>
+                            <div class="text-holo-4 font-mono text-sm">Freelance</div>
+                        </div>
+                    </div>
+                    <ul class="text-text-dim space-y-2 text-sm">
+                        <li class="flex gap-2"><span class="text-holo-4">></span> Mengatur kegiatan komunikasi dan
+                            promosi untuk meningkatkan kesadaran acara</li>
+                        <li class="flex gap-2"><span class="text-holo-4">></span> Membuat laporan evaluasi untuk
+                            mengukur keberhasilan acara</li>
+                        <li class="flex gap-2"><span class="text-holo-4">></span> Memberikan rekomendasi perbaikan untuk
+                            acara mendatang</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROJECTS SECTION -->
+    <!-- ============================================ -->
+    <section id="projects" class="py-24 bg-bg-terminal">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="section-header" data-animate>
+                <span class="section-number">04</span>
+                <h2 class="section-title">Selected Works</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="card-cyber overflow-hidden" data-animate>
+                <div class="grid md:grid-cols-2">
+                    <div class="p-8">
+                        <div class="inline-block px-3 py-1 bg-holo-1/10 text-holo-1 text-xs font-mono rounded mb-4">
+                            🏆 2nd Place Winner
+                        </div>
+                        <h3 class="text-2xl font-bold text-text-bright mb-2">Pinpin E-Learning Platform</h3>
+                        <p class="text-holo-3 font-mono text-sm mb-4">IT Bootcamp Software Dev Batch IV (2025)</p>
+                        <p class="text-text-dim leading-relaxed mb-6">
+                            A comprehensive gamified learning system designed to increase student engagement.
+                            Led a 7-person team through the full SDLC, implementing real-time leaderboards
+                            (XP System) and automated student monitoring.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tag-cyber">PHP</span>
+                            <span class="tag-cyber">Laravel</span>
+                            <span class="tag-cyber">MySQL</span>
+                            <span class="tag-cyber">Gamification</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1Vhgz-8rDfugWunLkeXvNswDV5IbOw8VV/view?usp=sharing"
+                            target="_blank"
+                            class="inline-flex items-center gap-2 text-holo-1 font-mono text-sm hover:gap-3 transition-all">
+                            > View Case Study <i class="fas fa-external-link-alt text-xs"></i>
+                        </a>
+                    </div>
+                    <div class="bg-bg-deep flex items-center justify-center p-8">
+                        <img src="assets/img/projects/pinpin.jpeg" alt="Pinpin E-Learning"
+                            class="rounded border border-border-dim max-h-64 object-cover">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Publications Section (Compact Cards) -->
-    <section id="publications" class="py-24 relative bg-dark border-t border-surfaceHighlight">
-        <div class="container mx-auto px-6 max-w-7xl relative z-10">
-            <div class="flex flex-col items-center mb-20 text-center" data-aos="fade-up">
-                <p class="text-primary font-mono text-sm tracking-widest mb-2">04. RESEARCH</p>
-                <h2 class="text-3xl md:text-5xl font-bold text-white font-sans">Publications</h2>
+    <!-- ============================================ -->
+    <!-- PUBLICATIONS SECTION -->
+    <!-- ============================================ -->
+    <section id="publications" class="py-24">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="section-header" data-animate>
+                <span class="section-number">05</span>
+                <h2 class="section-title">Publications</h2>
+                <div class="section-line"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Pub 1 -->
-                <div class="solid-card p-10 rounded-lg relative overflow-hidden group hover:bg-surfaceHighlight transition-all duration-300 border-l-4 border-l-primary"
-                    data-aos="fade-right">
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between mb-6">
-                            <span
-                                class="px-4 py-1.5 bg-primary/10 text-primary text-xs font-bold rounded border border-primary/20">JPKMI,
-                                2025</span>
-                            <a href="https://researchhub.id/index.php/jpkmi/article/view/8175" target="_blank"
-                                rel="noopener noreferrer">
-                                <i
-                                    class="fas fa-external-link-alt text-textMuted hover:text-white transition-colors cursor-pointer"></i>
-                            </a>
-                        </div>
-                        <h3
-                            class="text-2xl font-bold text-white mb-4 leading-tight group-hover:text-primary transition-colors">
-                            Digital Marketing Optimization for MSMEs</h3>
-                        <p class="text-textMuted leading-relaxed mb-6">
-                            "Optimalisasi Affiliate Marketing Sebagai Alternatif Pemasaran Digital Bagi UMKM" - An
-                            empirical analysis on leveraging digital economies for small businesses in the Industry 4.0
-                            era.
-                        </p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card-cyber p-8" data-animate>
+                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-lg font-bold text-text-bright mb-3">Digital Marketing Optimization for MSMEs</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-4">
+                        "Optimalisasi Affiliate Marketing Sebagai Alternatif Pemasaran Digital Bagi UMKM" -
+                        An empirical analysis on leveraging digital economies for small businesses in the Industry 4.0
+                        era.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-cyber">Digital Marketing</span>
+                        <span class="tag-cyber">UMKM</span>
+                        <span class="tag-cyber">Industry 4.0</span>
                     </div>
                 </div>
 
-                <!-- Pub 2 -->
-                <div class="solid-card p-10 rounded-lg relative overflow-hidden group hover:bg-surfaceHighlight transition-all duration-300 border-l-4 border-l-secondary"
-                    data-aos="fade-left">
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between mb-6">
-                            <span
-                                class="px-4 py-1.5 bg-secondary/10 text-secondary text-xs font-bold rounded border border-secondary/20">JIBS
-                                / ITTC, 2025</span>
-                            <a href="https://www.researchgate.net/publication/396409810_Perancangan_UIUX_Penjualan_Produk_Makanan_Cireng_Mercon_Berbasis_Mobile_di_Kota_Jakarta"
-                                target="_blank" rel="noopener noreferrer">
-                                <i
-                                    class="fas fa-external-link-alt text-textMuted hover:text-white transition-colors cursor-pointer"></i>
-                            </a>
-                        </div>
-                        <h3
-                            class="text-2xl font-bold text-white mb-4 leading-tight group-hover:text-secondary transition-colors">
-                            Mobile Commerce UI/UX Design</h3>
-                        <p class="text-textMuted leading-relaxed mb-6">
-                            "Perancangan UI/UX Penjualan Produk Makanan Cireng Mercon Berbasis Mobile" - Focusing on
-                            User Experience (UX) methodologies to enhance conversion rates in food delivery
-                            applications.
-                        </p>
+                <div class="card-cyber p-8" data-animate>
+                    <div class="text-holo-2 text-3xl mb-4"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="text-lg font-bold text-text-bright mb-3">Mobile Commerce UI/UX Design</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-4">
+                        "Perancangan UI/UX Penjualan Produk Makanan Cireng Mercon Berbasis Mobile" -
+                        Focusing on User Experience (UX) methodologies to enhance conversion rates in food delivery
+                        applications.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-cyber">UI/UX</span>
+                        <span class="tag-cyber">Mobile App</span>
+                        <span class="tag-cyber">E-Commerce</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certificates Section -->
-    <section id="certificates" class="py-24 relative bg-dark border-t border-surfaceHighlight">
-        <div class="container mx-auto px-6 max-w-7xl relative z-10">
-            <div class="flex flex-col items-center mb-20 text-center" data-aos="fade-up">
-                <p class="text-primary font-mono text-sm tracking-widest mb-2">05. CREDENTIALS</p>
-                <h2 class="text-3xl md:text-5xl font-bold text-white font-sans">Certifications & Awards</h2>
+    <!-- ============================================ -->
+    <!-- CREDENTIALS SECTION -->
+    <!-- ============================================ -->
+    <section id="certificates" class="py-24 bg-bg-terminal">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="section-header" data-animate>
+                <span class="section-number">06</span>
+                <h2 class="section-title">Certifications & Awards</h2>
+                <div class="section-line"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 1. Belajar Dasar AI -->
-                <div class="solid-card p-6 rounded-lg border border-surfaceHighlight hover:border-primary/50 transition-all duration-300 group flex flex-col h-full bg-surface"
-                    data-aos="fade-up">
-                    <div class="flex-grow">
-                        <div
-                            class="w-12 h-12 bg-emerald-500/10 rounded flex items-center justify-center text-emerald-500 mb-6 group-hover:bg-emerald-500 group-hover:text-dark transition-colors">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">Belajar Dasar AI</h3>
-                        <p class="text-textMuted text-xs mb-3 font-mono">Dicoding Indonesia (Google Cloud Partner)</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-6">
-                            Menunjukkan pemahaman fundamental yang kuat tentang Artificial Intelligence, mencakup
-                            pengolahan data untuk AI, serta landasan Machine Learning dan Deep Learning sebagai basis
-                            inovasi teknologi cerdas.
-                        </p>
-                    </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Belajar Dasar AI -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-robot"></i></div>
+                    <h3 class="font-bold text-text-bright mb-2">Belajar Dasar AI</h3>
+                    <p class="text-text-dim text-xs font-mono mb-3">Dicoding Indonesia (Google Cloud Partner)</p>
+                    <p class="text-text-dim text-sm mb-4">Pemahaman fundamental AI, Machine Learning dan Deep Learning
+                        sebagai basis inovasi teknologi cerdas.</p>
                     <a href="assets/Sertifikat/Belajar Dasar AI.pdf"
-                        class="cursor-pointer text-emerald-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all view-certificate"
+                        class="view-certificate inline-flex items-center gap-2 text-holo-1 text-sm font-mono hover:gap-3 transition-all"
                         data-type="pdf" data-title="Belajar Dasar AI">
-                        View Detail <i class="fas fa-expand"></i>
+                        > view <i class="fas fa-external-link-alt text-xs"></i>
                     </a>
                 </div>
 
-                <!-- 2. Prompt Engineering -->
-                <div class="solid-card p-6 rounded-lg border border-surfaceHighlight hover:border-primary/50 transition-all duration-300 group flex flex-col h-full bg-surface"
-                    data-aos="fade-up">
-                    <div class="flex-grow">
-                        <div
-                            class="w-12 h-12 bg-emerald-500/10 rounded flex items-center justify-center text-emerald-500 mb-6 group-hover:bg-emerald-500 group-hover:text-dark transition-colors">
-                            <i class="fas fa-comment-dots"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">Prompt Engineering untuk Software
-                            Developer</h3>
-                        <p class="text-textMuted text-xs mb-3 font-mono">Dicoding Indonesia</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-6">
-                            Menguasai teknik komunikasi efektif dengan Generative AI, menerapkan pola prompt canggih dan
-                            praktik terbaik untuk mengoptimalkan alur kerja pengembangan perangkat lunak secara etis dan
-                            efisien.
-                        </p>
-                    </div>
+                <!-- Prompt Engineering -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-2 text-3xl mb-4"><i class="fas fa-comment-dots"></i></div>
+                    <h3 class="font-bold text-text-bright mb-2">Prompt Engineering</h3>
+                    <p class="text-text-dim text-xs font-mono mb-3">Dicoding Indonesia</p>
+                    <p class="text-text-dim text-sm mb-4">Teknik komunikasi efektif dengan Generative AI untuk
+                        mengoptimalkan pengembangan perangkat lunak.</p>
                     <a href="assets/Sertifikat/Prompt Engineering untuk Software Developer.pdf"
-                        class="cursor-pointer text-emerald-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all view-certificate"
-                        data-type="pdf" data-title="Prompt Engineering untuk Software Developer">
-                        View Detail <i class="fas fa-expand"></i>
+                        class="view-certificate inline-flex items-center gap-2 text-holo-2 text-sm font-mono hover:gap-3 transition-all"
+                        data-type="pdf" data-title="Prompt Engineering">
+                        > view <i class="fas fa-external-link-alt text-xs"></i>
                     </a>
                 </div>
 
-                <!-- 3. Machine Learning -->
-                <div class="solid-card p-6 rounded-lg border border-surfaceHighlight hover:border-primary/50 transition-all duration-300 group flex flex-col h-full bg-surface"
-                    data-aos="fade-up">
-                    <div class="flex-grow">
-                        <div
-                            class="w-12 h-12 bg-emerald-500/10 rounded flex items-center justify-center text-emerald-500 mb-6 group-hover:bg-emerald-500 group-hover:text-dark transition-colors">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">Belajar Machine Learning untuk
-                            Pemula</h3>
-                        <p class="text-textMuted text-xs mb-3 font-mono">Dicoding Indonesia</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-6">
-                            Kompetensi praktis dalam membangun model prediktif cerdas, menguasai teknik Supervised dan
-                            Unsupervised Learning, serta optimalisasi model melalui Hyperparameter Tuning untuk solusi
-                            data-driven.
-                        </p>
-                    </div>
+                <!-- Machine Learning -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-3 text-3xl mb-4"><i class="fas fa-brain"></i></div>
+                    <h3 class="font-bold text-text-bright mb-2">Machine Learning</h3>
+                    <p class="text-text-dim text-xs font-mono mb-3">Dicoding Indonesia</p>
+                    <p class="text-text-dim text-sm mb-4">Kompetensi membangun model prediktif cerdas dengan Supervised
+                        dan Unsupervised Learning.</p>
                     <a href="assets/Sertifikat/Belajar Machine Learning untuk Pemula.pdf"
-                        class="cursor-pointer text-emerald-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all view-certificate"
-                        data-type="pdf" data-title="Belajar Machine Learning untuk Pemula">
-                        View Detail <i class="fas fa-expand"></i>
+                        class="view-certificate inline-flex items-center gap-2 text-holo-3 text-sm font-mono hover:gap-3 transition-all"
+                        data-type="pdf" data-title="Machine Learning">
+                        > view <i class="fas fa-external-link-alt text-xs"></i>
                     </a>
                 </div>
 
-                <!-- 4. Python -->
-                <div class="solid-card p-6 rounded-lg border border-surfaceHighlight hover:border-primary/50 transition-all duration-300 group flex flex-col h-full bg-surface"
-                    data-aos="fade-up">
-                    <div class="flex-grow">
-                        <div
-                            class="w-12 h-12 bg-emerald-500/10 rounded flex items-center justify-center text-emerald-500 mb-6 group-hover:bg-emerald-500 group-hover:text-dark transition-colors">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">Memulai Pemrograman dengan Python
-                        </h3>
-                        <p class="text-textMuted text-xs mb-3 font-mono">Dicoding Indonesia</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-6">
-                            Penguasaan logika pemrograman Python yang solid, mulai dari manipulasi data hingga konsep
-                            Object-Oriented Programming (OOP) dan Unit Testing untuk membangun aplikasi yang bersih,
-                            efisien, dan scalable.
-                        </p>
-                    </div>
+                <!-- Python -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-4 text-3xl mb-4"><i class="fab fa-python"></i></div>
+                    <h3 class="font-bold text-text-bright mb-2">Python Programming</h3>
+                    <p class="text-text-dim text-xs font-mono mb-3">Dicoding Indonesia</p>
+                    <p class="text-text-dim text-sm mb-4">Penguasaan logika pemrograman Python dan OOP untuk aplikasi
+                        yang bersih dan scalable.</p>
                     <a href="assets/Sertifikat/Memulai Pemrograman dengan Python.pdf"
-                        class="cursor-pointer text-emerald-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all view-certificate"
-                        data-type="pdf" data-title="Memulai Pemrograman dengan Python">
-                        View Detail <i class="fas fa-expand"></i>
+                        class="view-certificate inline-flex items-center gap-2 text-holo-4 text-sm font-mono hover:gap-3 transition-all"
+                        data-type="pdf" data-title="Python Programming">
+                        > view <i class="fas fa-external-link-alt text-xs"></i>
                     </a>
                 </div>
 
-                <!-- 5. AI Professional Skill -->
-                <div class="solid-card p-6 rounded-lg border border-surfaceHighlight hover:border-primary/50 transition-all duration-300 group flex flex-col h-full bg-surface"
-                    data-aos="fade-up">
-                    <div class="flex-grow">
-                        <div
-                            class="w-12 h-12 bg-blue-500/10 rounded flex items-center justify-center text-blue-500 mb-6 group-hover:bg-blue-500 group-hover:text-dark transition-colors">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">Certificate of Professional Skill in
-                            Artificial Intelligence</h3>
-                        <p class="text-textMuted text-xs mb-3 font-mono">MySkill (AWS EdStart Member)</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-6">
-                            Penyelesaian jalur pembelajaran komprehensif yang mencakup spektrum luas teknologi
-                            Artificial Intelligence, memvalidasi kesiapan profesional dalam mengadopsi dan menerapkan
-                            solusi AI modern.
-                        </p>
-                    </div>
+                <!-- AI Professional Skill -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-certificate"></i></div>
+                    <h3 class="font-bold text-text-bright mb-2">AI Professional Skill</h3>
+                    <p class="text-text-dim text-xs font-mono mb-3">MySkill (AWS EdStart Member)</p>
+                    <p class="text-text-dim text-sm mb-4">Full Learning Path Artificial Intelligence memvalidasi
+                        kesiapan profesional menerapkan solusi AI.</p>
                     <a href="assets/Sertifikat/Certificate of Professional Skill in Artificial Intelligence.pdf"
-                        class="cursor-pointer text-blue-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all view-certificate"
-                        data-type="pdf" data-title="Certificate of Professional Skill in AI">
-                        View Detail <i class="fas fa-expand"></i>
+                        class="view-certificate inline-flex items-center gap-2 text-holo-1 text-sm font-mono hover:gap-3 transition-all"
+                        data-type="pdf" data-title="AI Professional Skill">
+                        > view <i class="fas fa-external-link-alt text-xs"></i>
                     </a>
                 </div>
 
-                <!-- 6. Career Planning -->
-                <div class="solid-card p-6 rounded-lg border border-surfaceHighlight hover:border-primary/50 transition-all duration-300 group flex flex-col h-full bg-surface"
-                    data-aos="fade-up">
-                    <div class="flex-grow">
-                        <div
-                            class="w-12 h-12 bg-purple-500/10 rounded flex items-center justify-center text-purple-500 mb-6 group-hover:bg-purple-500 group-hover:text-dark transition-colors">
-                            <i class="fas fa-route"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">Certificate of Appreciation -
-                            Successful Career Planning IT/Computer</h3>
-                        <p class="text-textMuted text-xs mb-3 font-mono">SmartPath</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-6">
-                            Wawasan strategis mengenai perencanaan karir di industri IT global, membekali diri dengan
-                            pemahaman tren industri dan roadmap sukses dalam ekosistem teknologi yang kompetitif.
-                        </p>
-                    </div>
+                <!-- Career Planning -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-2 text-3xl mb-4"><i class="fas fa-route"></i></div>
+                    <h3 class="font-bold text-text-bright mb-2">IT Career Planning</h3>
+                    <p class="text-text-dim text-xs font-mono mb-3">SmartPath</p>
+                    <p class="text-text-dim text-sm mb-4">Wawasan strategis perencanaan karir di industri IT global dan
+                        roadmap sukses.</p>
                     <a href="assets/Sertifikat/Certificate of Appreciation - Successful Career Planning ITComputer.jpg"
-                        class="cursor-pointer text-purple-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all view-certificate"
-                        data-type="image" data-title="Successful Career Planning IT/Computer">
-                        View Detail <i class="fas fa-expand"></i>
+                        class="view-certificate inline-flex items-center gap-2 text-holo-2 text-sm font-mono hover:gap-3 transition-all"
+                        data-type="image" data-title="IT Career Planning">
+                        > view <i class="fas fa-external-link-alt text-xs"></i>
                     </a>
                 </div>
 
-                <!-- 7. Workshop IT Bootcamp -->
-                <div class="solid-card p-6 rounded-lg border border-surfaceHighlight hover:border-primary/50 transition-all duration-300 group flex flex-col h-full bg-surface"
-                    data-aos="fade-up">
-                    <div class="flex-grow">
-                        <div
-                            class="w-12 h-12 bg-orange-500/10 rounded flex items-center justify-center text-orange-500 mb-6 group-hover:bg-orange-500 group-hover:text-dark transition-colors">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">Workshop IT Bootcamp "Software
-                            Development For Industry"</h3>
-                        <p class="text-textMuted text-xs mb-3 font-mono">Universitas Bina Sarana Informatika</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-6">
-                            Partisipasi aktif dalam pendalaman standar industri pengembangan perangkat lunak, memperkuat
-                            wawasan teknis dan kesiapan adaptasi terhadap dinamika kebutuhan industri teknologi masa
-                            kini.
-                        </p>
-                    </div>
+                <!-- Workshop IT Bootcamp -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-3 text-3xl mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 class="font-bold text-text-bright mb-2">Workshop IT Bootcamp</h3>
+                    <p class="text-text-dim text-xs font-mono mb-3">Universitas Bina Sarana Informatika</p>
+                    <p class="text-text-dim text-sm mb-4">Pendalaman standar industri pengembangan perangkat lunak dan
+                        kesiapan adaptasi teknologi.</p>
                     <a href="assets/Sertifikat/Workshop IT Bootcamp Software Development For Industry.pdf"
-                        class="cursor-pointer text-orange-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all view-certificate"
+                        class="view-certificate inline-flex items-center gap-2 text-holo-3 text-sm font-mono hover:gap-3 transition-all"
                         data-type="pdf" data-title="Workshop IT Bootcamp">
-                        View Detail <i class="fas fa-expand"></i>
+                        > view <i class="fas fa-external-link-alt text-xs"></i>
                     </a>
                 </div>
 
-                <!-- 8. IT Bootcamp -->
-                <div class="solid-card p-6 rounded-lg border border-surfaceHighlight hover:border-primary/50 transition-all duration-300 group flex flex-col h-full bg-surface"
-                    data-aos="fade-up">
-                    <div class="flex-grow">
-                        <div
-                            class="w-12 h-12 bg-orange-500/10 rounded flex items-center justify-center text-orange-500 mb-6 group-hover:bg-orange-500 group-hover:text-dark transition-colors">
-                            <i class="fas fa-campground"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">IT Bootcamp "Software Development
-                            For Industry"</h3>
-                        <p class="text-textMuted text-xs mb-3 font-mono">Universitas Bina Sarana Informatika</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-6">
-                            Pengalaman intensif dalam simulasi proyek industri nyata, mencakup kolaborasi tim,
-                            pengembangan solusi perangkat lunak praktis, dan presentasi teknis di hadapan para ahli.
-                        </p>
-                    </div>
+                <!-- IT Bootcamp -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-4 text-3xl mb-4"><i class="fas fa-code"></i></div>
+                    <h3 class="font-bold text-text-bright mb-2">IT Bootcamp</h3>
+                    <p class="text-text-dim text-xs font-mono mb-3">Universitas Bina Sarana Informatika</p>
+                    <p class="text-text-dim text-sm mb-4">Simulasi proyek industri nyata, kolaborasi tim, dan presentasi
+                        teknis di hadapan para ahli.</p>
                     <a href="assets/Sertifikat/IT Bootcamp Software Development For Industry.pdf"
-                        class="cursor-pointer text-orange-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all view-certificate"
+                        class="view-certificate inline-flex items-center gap-2 text-holo-4 text-sm font-mono hover:gap-3 transition-all"
                         data-type="pdf" data-title="IT Bootcamp">
-                        View Detail <i class="fas fa-expand"></i>
+                        > view <i class="fas fa-external-link-alt text-xs"></i>
                     </a>
                 </div>
 
-                <!-- 9. KKP Award -->
-                <div class="solid-card p-6 rounded-lg border border-surfaceHighlight hover:border-primary/50 transition-all duration-300 group flex flex-col h-full bg-surface"
-                    data-aos="fade-up">
-                    <div class="flex-grow">
-                        <div
-                            class="w-12 h-12 bg-yellow-500/10 rounded flex items-center justify-center text-yellow-500 mb-6 group-hover:bg-yellow-500 group-hover:text-dark transition-colors">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">Piagam Penghargaan Juara Harapan 1 -
-                            Kategori Putra Terbaik</h3>
-                        <p class="text-textMuted text-xs mb-3 font-mono">Suku Dinas Pendidikan Wilayah II JakPus</p>
-                        <p class="text-textMuted text-sm leading-relaxed mb-6">
-                            Pengakuan prestasi tingkat nasional atas kepemimpinan dan potensi luar biasa, membuktikan
-                            dedikasi, karakter unggul, dan kemampuan soft skill yang kompetitif.
+                <!-- KKP Award -->
+                <div class="card-cyber p-6" data-animate>
+                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-trophy"></i></div>
+                    <h3 class="font-bold text-text-bright mb-2">Juara Harapan 1 KKP</h3>
+                    <p class="text-text-dim text-xs font-mono mb-3">Sudin Pendidikan Wilayah II JakPus</p>
+                    <p class="text-text-dim text-sm mb-4">Pengakuan prestasi tingkat nasional atas kepemimpinan dan
+                        potensi luar biasa.</p>
+                    <a href="assets/Sertifikat/Piagam Penghargaan Juara Harapan 1 - Kategori Putra Terbaik.pdf"
+                        class="view-certificate inline-flex items-center gap-2 text-holo-1 text-sm font-mono hover:gap-3 transition-all"
+                        data-type="pdf" data-title="Juara Harapan 1 KKP">
+                        > view <i class="fas fa-external-link-alt text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SKILLS SECTION -->
+    <!-- ============================================ -->
+    <section id="skills" class="py-24">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="section-header" data-animate>
+                <span class="section-number">07</span>
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card-cyber p-8" data-animate>
+                    <div class="font-mono text-holo-1 text-sm mb-4">> technical_skills</div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tag-cyber"><i class="fab fa-python mr-2"></i>Python</span>
+                        <span class="tag-cyber"><i class="fab fa-js-square mr-2"></i>JavaScript</span>
+                        <span class="tag-cyber"><i class="fas fa-database mr-2"></i>SQL</span>
+                        <span class="tag-cyber"><i class="fab fa-php mr-2"></i>PHP</span>
+                        <span class="tag-cyber"><i class="fab fa-laravel mr-2"></i>Laravel</span>
+                        <span class="tag-cyber"><i class="fas fa-brain mr-2"></i>Machine Learning</span>
+                        <span class="tag-cyber"><i class="fas fa-robot mr-2"></i>Prompt Engineering</span>
+                        <span class="tag-cyber"><i class="fab fa-git-alt mr-2"></i>Git</span>
+                        <span class="tag-cyber"><i class="fab fa-linux mr-2"></i>Linux</span>
+                        <span class="tag-cyber"><i class="fas fa-chart-bar mr-2"></i>Data Analysis</span>
+                    </div>
+                </div>
+
+                <div class="card-cyber p-8" data-animate>
+                    <div class="font-mono text-holo-2 text-sm mb-4">> soft_skills</div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tag-cyber"><i class="fas fa-users mr-2"></i>Team Leadership</span>
+                        <span class="tag-cyber"><i class="fas fa-project-diagram mr-2"></i>Project Management</span>
+                        <span class="tag-cyber"><i class="fas fa-comments mr-2"></i>Communication</span>
+                        <span class="tag-cyber"><i class="fas fa-lightbulb mr-2"></i>Problem Solving</span>
+                        <span class="tag-cyber"><i class="fas fa-clock mr-2"></i>Time Management</span>
+                        <span class="tag-cyber"><i class="fas fa-handshake mr-2"></i>Stakeholder Management</span>
+                    </div>
+                    <div class="mt-6 p-4 bg-bg-deep rounded border border-holo-1/30">
+                        <p class="text-holo-1 font-mono text-xs mb-2">> achievement:</p>
+                        <p class="text-text-dim text-sm">
+                            <span class="text-holo-1">Juara Harapan 1</span>, Kawah Kepemimpinan Pelajar (KKP) Tingkat
+                            Nasional –
+                            Menunjukkan kompetensi dalam analisis masalah sosial dan dinamika kelompok.
                         </p>
                     </div>
-                    <a href="assets/Sertifikat/Piagam Penghargaan Juara Harapan 1 - Kategori Putra Terbaik.pdf"
-                        class="cursor-pointer text-yellow-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all view-certificate"
-                        data-type="pdf" data-title="Piagam Penghargaan Juara Harapan 1">
-                        View Detail <i class="fas fa-expand"></i>
-                    </a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Skills Section (No Progress Bars) -->
-    <section id="skills" class="py-24 relative bg-darker">
-        <div class="container mx-auto px-6 max-w-7xl relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-20 text-center text-white font-sans" data-aos="fade-up">
-                Skills & Expertise</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Tech Skills -->
-                <div class="solid-card p-8 rounded-2xl border-t-4 border-t-primary" data-aos="fade-up">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary">
-                            <i class="fas fa-code text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Teknologi</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">PHP
-                            (Laravel/CI)</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">Python</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">MySQL</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">HTML/CSS/Bootstrap</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">JavaScript</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">Microsoft
-                            Office</span>
-                    </div>
-                </div>
-
-                <!-- Logistics Skills -->
-                <div class="solid-card p-8 rounded-2xl border-t-4 border-t-secondary" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 rounded bg-secondary/10 flex items-center justify-center text-secondary">
-                            <i class="fas fa-truck text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Logistik & Operasional</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">Supply
-                            Chain Mgmt</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">WMS</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">Stock
-                            Opname</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">Inbound/Outbound</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">SAP
-                            (Basic)</span>
-                    </div>
-                </div>
-
-                <!-- Soft Skills -->
-                <div class="solid-card p-8 rounded-2xl border-t-4 border-t-emerald-500" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div
-                            class="w-12 h-12 rounded bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-                            <i class="fas fa-users text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Soft Skills</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">Kepemimpinan
-                            Tim</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">Manajemen
-                            Proyek</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">Komunikasi
-                            Publik</span>
-                        <span
-                            class="px-3 py-1.5 bg-surfaceHighlight text-textMuted text-sm rounded border border-white/5">Berpikir
-                            Analitis</span>
-                    </div>
-                </div>
+    <!-- ============================================ -->
+    <!-- CONTACT SECTION -->
+    <!-- ============================================ -->
+    <section id="contact" class="py-24 bg-bg-terminal">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="section-header" data-animate>
+                <span class="section-number">08</span>
+                <h2 class="section-title">Contact</h2>
+                <div class="section-line"></div>
             </div>
 
-            <div class="mt-12 p-6 bg-surfaceHighlight/50 rounded-xl border border-surfaceHighlight text-center"
-                data-aos="fade-up">
-                <p class="text-sm text-textMuted"><strong class="text-secondary">Award:</strong> Juara Harapan 1, Kawah
-                    Kepemimpinan Pelajar (KKP) Tingkat Nasional – Menunjukkan kompetensi dalam analisis masalah sosial
-                    dan dinamika kelompok.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 relative bg-dark border-t border-surfaceHighlight">
-        <div class="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
-        <div class="container mx-auto px-6 max-w-4xl relative z-10">
-            <div class="solid-card p-10 md:p-16 rounded-2xl border border-surfaceHighlight text-center"
-                data-aos="zoom-in">
-                <p class="text-primary font-bold tracking-widest uppercase mb-4 text-sm">CONTACT</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white font-sans">Ready to Collaborate?</h2>
-                <p class="text-textMuted mb-12 max-w-xl mx-auto leading-relaxed">
-                    Whether you need a custom web solution or a strategic partner for your next project, I'm just a
-                    message away.
+            <div class="text-center mb-12" data-animate>
+                <h3 class="text-3xl md:text-4xl font-bold holo-text mb-4">Ready to Collaborate?</h3>
+                <p class="text-text-dim max-w-xl mx-auto">
+                    Tertarik untuk berkolaborasi atau sekadar berdiskusi tentang teknologi dan kebijakan publik?
+                    Jangan ragu untuk menghubungi saya.
                 </p>
+            </div>
 
-                <form id="contactForm" action="https://formspree.io/f/mgowvwrj" method="POST"
-                    class="max-w-xl mx-auto space-y-5 text-left">
-                    <div class="relative group">
-                        <input type="text" id="name" name="name" class="solid-input focus:ring-primary" placeholder=" "
-                            required />
-                        <label for="name"
-                            class="absolute text-sm text-textMuted duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 peer-focus:px-2 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-4 bg-surface">Your
-                            Name</label>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-animate>
+                    <div class="font-mono text-holo-1 text-lg mb-6">> contact --info</div>
+
+                    <div class="space-y-4 font-mono">
+                        <a href="mailto:dandyichlamsyah@gmail.com"
+                            class="flex items-center gap-4 text-text-dim hover:text-holo-1 transition-colors group">
+                            <div
+                                class="w-12 h-12 border border-border-dim group-hover:border-holo-1 flex items-center justify-center transition-colors">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-text-muted">Email</p>
+                                <p class="text-sm">dandyichlamsyah@gmail.com</p>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/dandy-huffaz-ichlamsyah-563211190" target="_blank"
+                            class="flex items-center gap-4 text-text-dim hover:text-holo-3 transition-colors group">
+                            <div
+                                class="w-12 h-12 border border-border-dim group-hover:border-holo-3 flex items-center justify-center transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-text-muted">LinkedIn</p>
+                                <p class="text-sm">/dandy-huffaz-ichlamsyah</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/dandyhuffazichlamsyah" target="_blank"
+                            class="flex items-center gap-4 text-text-dim hover:text-holo-2 transition-colors group">
+                            <div
+                                class="w-12 h-12 border border-border-dim group-hover:border-holo-2 flex items-center justify-center transition-colors">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-text-muted">GitHub</p>
+                                <p class="text-sm">/dandyhuffazichlamsyah</p>
+                            </div>
+                        </a>
+                        <div class="flex items-center gap-4 text-text-dim">
+                            <div class="w-12 h-12 border border-border-dim flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-text-muted">Location</p>
+                                <p class="text-sm">Jakarta Timur, DKI Jakarta</p>
+                            </div>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="relative group">
-                        <input type="email" id="email" name="email" class="solid-input focus:ring-primary"
-                            placeholder=" " required />
-                        <label for="email"
-                            class="absolute text-sm text-textMuted duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 peer-focus:px-2 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-4 bg-surface">Email
-                            Address</label>
+                <form id="contactForm" action="https://formspree.io/f/xwkgvkpv" method="POST" class="space-y-4"
+                    data-animate>
+                    <div>
+                        <label class="block text-text-dim text-sm font-mono mb-2">> your_name</label>
+                        <input type="text" name="name" required
+                            class="w-full bg-bg-card border border-border-dim text-text-bright px-4 py-3 font-mono focus:border-holo-1 focus:outline-none transition-colors">
                     </div>
-
-                    <div class="relative group">
-                        <textarea id="message" name="message" rows="4"
-                            class="solid-input focus:ring-primary resize-none" placeholder=" " required></textarea>
-                        <label for="message"
-                            class="absolute text-sm text-textMuted duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 peer-focus:px-2 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-6 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-4 bg-surface">How
-                            can I help you?</label>
+                    <div>
+                        <label class="block text-text-dim text-sm font-mono mb-2">> your_email</label>
+                        <input type="email" name="email" required
+                            class="w-full bg-bg-card border border-border-dim text-text-bright px-4 py-3 font-mono focus:border-holo-1 focus:outline-none transition-colors">
                     </div>
-
-                    <button type="submit"
-                        class="w-full text-dark bg-primary hover:bg-cyan-400 font-bold rounded-lg text-lg px-5 py-4 text-center shadow-[0_0_20px_rgba(6,182,212,0.3)] transform hover:scale-[1.01] transition-all duration-300 flex justify-center items-center gap-2 group">
-                        <span>Send Request</span> <i
-                            class="fas fa-paper-plane text-xs group-hover:translate-x-1 transition-transform"></i>
+                    <div>
+                        <label class="block text-text-dim text-sm font-mono mb-2">> message</label>
+                        <textarea name="message" rows="4" required
+                            class="w-full bg-bg-card border border-border-dim text-text-bright px-4 py-3 font-mono focus:border-holo-1 focus:outline-none transition-colors resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-cyber w-full">
+                        > TRANSMIT MESSAGE <i class="fas fa-paper-plane ml-2"></i>
                     </button>
                 </form>
-
-                <div class="mt-16 flex justify-center gap-6">
-                    <a href="https://linkedin.com/in/dandy-huffaz-ichlamsyah-563211190" target="_blank"
-                        class="w-12 h-12 rounded bg-surfaceHighlight flex items-center justify-center text-textMuted hover:text-white hover:bg-[#0077b5] transition-all duration-300 hover:-translate-y-1">
-                        <i class="fab fa-linkedin-in text-lg"></i>
-                    </a>
-                    <a href="https://github.com/dandyhuffazichlamsyah" target="_blank"
-                        class="w-12 h-12 rounded bg-surfaceHighlight flex items-center justify-center text-textMuted hover:text-white hover:bg-black transition-all duration-300 hover:-translate-y-1">
-                        <i class="fab fa-github text-lg"></i>
-                    </a>
-                    <a href="mailto:dandyichlamsyah@gmail.com"
-                        class="w-12 h-12 rounded bg-surfaceHighlight flex items-center justify-center text-textMuted hover:text-white hover:bg-red-600 transition-all duration-300 hover:-translate-y-1">
-                        <i class="fas fa-envelope text-lg"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark py-12 border-t border-surfaceHighlight relative z-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold text-white font-sans tracking-tight mb-4">Dandy<span class="text-primary">
-                    Huffaz Ichlamsyah</span></h2>
-            <p class="text-textMuted text-sm max-w-md mx-auto mb-8">
-                Building bridges between complex systems and human governance.
-            </p>
-            <p class="text-slate-600 text-xs">
-                &copy; 2025 Dandy Huffaz Ichlamsyah. All Rights Reserved.
-            </p>
+    <!-- FOOTER -->
+    <footer class="footer-cyber py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 border border-holo-1 flex items-center justify-center font-mono font-bold text-holo-1">
+                        DH
+                    </div>
+                    <span class="font-mono text-text-dim">
+                        <span class="text-holo-1">Dandy</span> Huffaz Ichlamsyah
+                    </span>
+                </div>
+
+                <p class="text-text-dim text-sm font-mono">
+                    © 2026 // Crafted with <span class="text-holo-1">&lt;/&gt;</span> and <span
+                        class="text-holo-2">♥</span>
+                </p>
+
+                <div class="flex gap-4">
+                    <a href="https://linkedin.com/in/dandy-huffaz-ichlamsyah-563211190" target="_blank"
+                        class="w-10 h-10 border border-border-dim flex items-center justify-center text-text-dim hover:text-holo-1 hover:border-holo-1 transition-all">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/dandyhuffazichlamsyah" target="_blank"
+                        class="w-10 h-10 border border-border-dim flex items-center justify-center text-text-dim hover:text-holo-1 hover:border-holo-1 transition-all">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:dandyichlamsyah@gmail.com"
+                        class="w-10 h-10 border border-border-dim flex items-center justify-center text-text-dim hover:text-holo-1 hover:border-holo-1 transition-all">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            once: true,
-            duration: 800,
-            offset: 100,
-        });
-    </script>
-    <script src="assets/js/script.js"></script>
-
     <!-- Certificate Modal -->
     <div id="certificateModal"
-        class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 backdrop-blur-sm bg-dark/80 transition-all duration-300 opacity-0">
-        <div class="relative w-full max-w-7xl h-[90vh] bg-surface rounded-xl shadow-2xl border border-surfaceHighlight flex flex-col overflow-hidden transform scale-95 transition-transform duration-300"
+        class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-bg-deep/90 backdrop-blur-sm">
+        <div class="relative w-full max-w-5xl h-[85vh] bg-bg-terminal border border-border-dim flex flex-col overflow-hidden"
             id="modalContent">
-            <!-- Modal Header -->
-            <div class="flex items-center justify-between p-4 border-b border-surfaceHighlight bg-surfaceHighlight/50">
-                <h3 class="text-lg md:text-xl font-bold text-white flex items-center gap-3" id="modalTitle">
-                    <i class="fas fa-certificate text-primary"></i> <span>Certificate View</span>
+            <div class="flex items-center justify-between p-4 border-b border-border-dim">
+                <h3 class="text-lg font-mono text-text-bright flex items-center gap-3" id="modalTitle">
+                    <span class="text-holo-1">></span> <span>Certificate View</span>
                 </h3>
                 <button id="closeModal"
-                    class="w-8 h-8 rounded-full bg-dark/50 hover:bg-red-500/20 text-textMuted hover:text-red-500 flex items-center justify-center transition-colors">
+                    class="w-8 h-8 border border-border-dim text-text-dim hover:text-holo-1 hover:border-holo-1 flex items-center justify-center transition-colors">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-
-            <!-- Modal Body -->
-            <div class="flex-grow bg-dark relative overflow-hidden flex items-center justify-center p-1" id="modalBody">
-                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary absolute"></div>
-                <!-- Content injected via JS -->
+            <div class="flex-grow bg-bg-deep relative overflow-hidden flex items-center justify-center" id="modalBody">
+                <div class="text-holo-1 font-mono">Loading...</div>
             </div>
-
-            <!-- Modal Footer (Optional download link) -->
-            <div class="p-3 border-t border-surfaceHighlight bg-surface flex justify-end">
+            <div class="p-3 border-t border-border-dim flex justify-end">
                 <a href="#" id="downloadLink" target="_blank" download
-                    class="text-xs font-mono text-primary hover:text-white flex items-center gap-2 px-3 py-1 rounded border border-primary/20 hover:bg-primary/20 transition-all">
-                    <i class="fas fa-download"></i> DOWNLOAD ORIGINAL FILE
+                    class="text-sm font-mono text-holo-1 hover:text-text-bright flex items-center gap-2 px-4 py-2 border border-holo-1/30 hover:border-holo-1 transition-all">
+                    <i class="fas fa-download"></i> DOWNLOAD
                 </a>
             </div>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+
 </body>
 
 </html>
