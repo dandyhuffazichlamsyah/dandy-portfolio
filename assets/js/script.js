@@ -240,23 +240,39 @@
 
 
   // ==========================================================================
-  // 3. CERTIFICATIONS VAULT DATABASE (COMPLETE BSI + GENERAL)
+  // 3. CERTIFICATIONS VAULT DATABASE (COMPLETE & ACCURATELY MAPPED)
   // ==========================================================================
   const CertsDatabase = [
     {
       title: "Analis Program (BNSP)",
       issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
       category: "software",
-      summary: "Sertifikasi kompetensi standar nasional Indonesia dalam bidang analisis kebutuhan, perancangan arsitektur, dan rekayasa perangkat lunak.",
-      file: "assets/Sertifikat/DAMC_dandyhuffaz52@gmail.com_DAMC-120126-01-1-00375.pdf",
-      type: "pdf"
+      summary: "Sertifikasi kompetensi standar nasional Indonesia dalam bidang analisis kebutuhan sistem, perancangan arsitektur, dan rekayasa perangkat lunak.",
+      file: null,
+      type: null
     },
     {
       title: "Database Administrator (BNSP)",
       issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
       category: "software",
       summary: "Sertifikasi kompetensi standar nasional Indonesia dalam bidang instalasi, manajemen, pemeliharaan, dan integritas basis data relasional.",
+      file: null,
+      type: null
+    },
+    {
+      title: "Coding Camp Software Engineering (SECC)",
+      issuer: "RevoU",
+      category: "software",
+      summary: "Sertifikasi kelulusan 1-week certified online course bidang software engineering fundamental, web development, dan best practices (No: CCSE 050126-01-1-00066).",
       file: "assets/Sertifikat/SECC_dandyhuffaz52@gmail.com_CCSE 050126-01-1-00066.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Data Analytics Mini Course (DAMC)",
+      issuer: "RevoU",
+      category: "software",
+      summary: "Sertifikasi kelulusan 1-week certified online course bidang analisis data bisnis, perumusan insight, dan data visualization (No: DAMC-120126-01-1-00375).",
+      file: "assets/Sertifikat/DAMC_dandyhuffaz52@gmail.com_DAMC-120126-01-1-00375.pdf",
       type: "pdf"
     },
     {
@@ -316,6 +332,54 @@
       type: "pdf"
     },
     {
+      title: "Fundamental Deep Learning",
+      issuer: "Dicoding Indonesia",
+      category: "ai-ml",
+      summary: "Arsitektur Neural Networks, NLP, Computer Vision, dan deployment model deep learning.",
+      file: "assets/Sertifikat/sertifikat_course_Belajar Fundamental Deep Learning.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Belajar Dasar Data Science",
+      issuer: "Dicoding Indonesia",
+      category: "software",
+      summary: "Siklus analisis data end-to-end, eksplorasi data, dan teknik machine learning untuk data scientist.",
+      file: "assets/Sertifikat/sertifikat_course_Belajar Dasar Data Science.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Belajar Dasar SQL",
+      issuer: "Dicoding Indonesia",
+      category: "software",
+      summary: "Query relational database, indexing, join operations, dan agregasi data untuk sistem analitik.",
+      file: "assets/Sertifikat/sertifikat_course_Belajar Dasar Structured Query Language (SQL).pdf",
+      type: "pdf"
+    },
+    {
+      title: "Data Science dengan Microsoft Fabric",
+      issuer: "Dicoding Indonesia & Microsoft",
+      category: "software",
+      summary: "Pemanfaatan ekosistem Microsoft Fabric untuk data engineering terpusat, analitik real-time, dan business intelligence.",
+      file: "assets/Sertifikat/sertifikat_course_Belajar Penerapan Data Science dengan Microsoft Fabric.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Memulai Pemrograman Python",
+      issuer: "Dicoding Indonesia",
+      category: "software",
+      summary: "Sintaks Python fundamental, struktur data, kontrol alur, dan pemrograman berorientasi objek (OOP).",
+      file: "assets/Sertifikat/Memulai Pemrograman dengan Python.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Software Engineering Bootcamp",
+      issuer: "MySkill",
+      category: "software",
+      summary: "Praktek rekayasa perangkat lunak modern, database design, REST API architecture, dan kolaborasi Git.",
+      file: "assets/Sertifikat/Dandy Huffaz Ichlamsyah - E-Certif SC Software Engineering MySkill.pdf",
+      type: "pdf"
+    },
+    {
       title: "AI and Automation with n8n",
       issuer: "MySkill",
       category: "ai-ml",
@@ -348,38 +412,6 @@
       type: "pdf"
     },
     {
-      title: "Software Engineering Bootcamp",
-      issuer: "MySkill",
-      category: "software",
-      summary: "Praktek rekayasa perangkat lunak modern, database design, REST API architecture, dan kolaborasi Git.",
-      file: "assets/Sertifikat/Dandy Huffaz Ichlamsyah - E-Certif SC Software Engineering MySkill.pdf",
-      type: "pdf"
-    },
-    {
-      title: "Memulai Pemrograman Python",
-      issuer: "Dicoding Indonesia",
-      category: "software",
-      summary: "Sintaks Python fundamental, struktur data, kontrol alur, dan pemrograman berorientasi objek (OOP).",
-      file: "assets/Sertifikat/Memulai Pemrograman dengan Python.pdf",
-      type: "pdf"
-    },
-    {
-      title: "Belajar Dasar SQL",
-      issuer: "Dicoding Indonesia",
-      category: "software",
-      summary: "Query relational database, indexing, join operations, dan agregasi data untuk sistem analitik.",
-      file: "assets/Sertifikat/sertifikat_course_Belajar Dasar Structured Query Language (SQL).pdf",
-      type: "pdf"
-    },
-    {
-      title: "Data Science dengan Microsoft Fabric",
-      issuer: "Dicoding Indonesia & Microsoft",
-      category: "software",
-      summary: "Pemanfaatan ekosistem Microsoft Fabric untuk data engineering terpusat, analitik real-time, dan business intelligence.",
-      file: "assets/Sertifikat/sertifikat_course_Belajar Penerapan Data Science dengan Microsoft Fabric.pdf",
-      type: "pdf"
-    },
-    {
       title: "IT Bootcamp Software Dev for Industry",
       issuer: "Universitas Bina Sarana Informatika",
       category: "software",
@@ -388,11 +420,27 @@
       type: "pdf"
     },
     {
+      title: "Workshop IT Bootcamp Software Dev",
+      issuer: "Universitas Bina Sarana Informatika",
+      category: "software",
+      summary: "Studi kasus industri dalam rekayasa perangkat lunak, integrasi basis data, dan performa web.",
+      file: "assets/Sertifikat/Workshop IT Bootcamp Software Development For Industry.pdf",
+      type: "pdf"
+    },
+    {
       title: "Data Analyst with SQL & Python",
       issuer: "DQLab",
       category: "software",
       summary: "Bootcamp intensif data wrangling, eksplorasi dataset besar, dan visualisasi data analitik.",
       file: "assets/Sertifikat/certificate-DQLABStudy Case Bootcamp Data Analyst with SQL & Python.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Machine Learning & AI Bootcamp",
+      issuer: "DQLab",
+      category: "ai-ml",
+      summary: "Implementasi studi kasus machine learning riil dari preprocessing data hingga evaluasi model.",
+      file: "assets/Sertifikat/certificate-DQLAB Study Case Bootcamp Machine learning & AI for Beginner.pdf",
       type: "pdf"
     },
     {
@@ -448,24 +496,40 @@
       filtered.forEach(cert => {
         const card = document.createElement('div');
         card.className = 'cert-card';
+
+        let actionHtml = '';
+        if (cert.file) {
+          actionHtml = `
+            <div class="cert-actions">
+              <button class="cert-view-btn" data-file="${cert.file}" data-type="${cert.type}" data-title="${cert.title}">
+                View Credential <i class="fas fa-arrow-right"></i>
+              </button>
+              <a href="${cert.file}" download class="cert-view-btn" style="color: var(--text-muted);" title="Download File">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          `;
+        } else {
+          actionHtml = `
+            <div class="cert-actions">
+              <span style="display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; color: var(--accent-blue); background: var(--accent-blue-soft); padding: 0.35rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid rgba(2, 132, 199, 0.25);">
+                <i class="fas fa-certificate"></i> Sertifikat Fisik BNSP
+              </span>
+            </div>
+          `;
+        }
+
         card.innerHTML = `
           <div class="cert-badge-cat">${getCategoryLabel(cert.category)}</div>
           <h4 class="cert-name">${cert.title}</h4>
           <div class="cert-issuer">${cert.issuer}</div>
           <p class="cert-summary">${cert.summary}</p>
-          <div class="cert-actions">
-            <button class="cert-view-btn" data-file="${cert.file}" data-type="${cert.type}" data-title="${cert.title}">
-              View Credential <i class="fas fa-arrow-right"></i>
-            </button>
-            <a href="${cert.file}" download class="cert-view-btn" style="color: var(--text-muted);" title="Download File">
-              <i class="fas fa-download"></i>
-            </a>
-          </div>
+          ${actionHtml}
         `;
         grid.appendChild(card);
       });
 
-      grid.querySelectorAll('.cert-view-btn[data-file]').forEach(btn => {
+      grid.querySelectorAll('button.cert-view-btn[data-file]').forEach(btn => {
         btn.addEventListener('click', () => {
           ModalManager.open(
             btn.getAttribute('data-file'),
