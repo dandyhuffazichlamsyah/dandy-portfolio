@@ -1,836 +1,839 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dandy Huffaz Ichlamsyah | Systems Architect</title>
-    <meta name="description"
-        content="Portfolio of Dandy Huffaz Ichlamsyah - Systems Architect bridging Technology & Governance.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dandy Huffaz Ichlamsyah | Software Engineer & AI Solutions Intern</title>
+  <meta name="description"
+    content="Portofolio Dandy Huffaz Ichlamsyah — Mahasiswa Semester 7 Sistem Informasi UBSI & Lulusan Cum Laude Politeknik APP Jakarta (IPK 3.95). Siap magang di bidang Software Engineering, AI Solutions, dan Data.">
+  <meta name="theme-color" content="#f8fafc">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'holo-1': '#00ff88',
-                        'holo-2': '#ff00ff',
-                        'holo-3': '#00ffff',
-                        'holo-4': '#ff6b00',
-                        'bg-deep': '#0a0a0a',
-                        'bg-terminal': '#0d1117',
-                        'bg-card': '#161b22',
-                        'border-dim': '#21262d',
-                        'border-bright': '#30363d',
-                        'text-bright': '#e6edf3',
-                        'text-dim': '#7d8590',
-                    },
-                    fontFamily: {
-                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-                        sans: ['Inter', 'SF Pro Display', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dandy Huffaz Ichlamsyah | Software Engineer & AI Solutions Intern">
+  <meta property="og:description"
+    content="Portofolio interaktif menampilkan 5 sistem web nyata, automasi AI, dan operasional logistik industri. Tersedia untuk magang 3-6 bulan.">
+  <meta property="og:image" content="assets/img/profile.png">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Design System CSS (Light Studio) -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="bg-bg-deep text-text-bright font-sans antialiased overflow-x-hidden">
+<body>
 
-    <!-- CRT Effects -->
-    <div class="scanlines"></div>
-    <div class="screen-glow"></div>
-    <div class="cursor-main"></div>
+  <!-- WebGL 3D Canvas Background (Light Studio) -->
+  <div id="webgl-container" aria-hidden="true"></div>
 
-    <!-- Navigation -->
-    <nav class="nav-cyber">
-        <div class="container mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 group">
-                <div
-                    class="w-10 h-10 border border-holo-1 flex items-center justify-center font-mono font-bold text-holo-1 group-hover:bg-holo-1 group-hover:text-bg-deep transition-all">
-                    DH
-                </div>
-                <span class="font-mono text-sm text-text-dim hidden sm:block">
-                    <span class="text-holo-1">dandy</span>@portfolio:~$
-                </span>
-            </a>
+  <!-- Ambient Light Mesh Grid -->
+  <div class="ambient-grid" aria-hidden="true"></div>
 
-            <ul class="hidden md:flex items-center gap-8">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#publications" class="nav-link">Research</a></li>
-                <li><a href="#certificates" class="nav-link">Credentials</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+  <!-- Site Content Layer -->
+  <div class="site-content">
+
+    <!-- ============================================ -->
+    <!-- NAVIGATION BAR -->
+    <!-- ============================================ -->
+    <header class="site-header">
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo" aria-label="Dandy Huffaz Ichlamsyah Home">
+            <div class="brand-glyph">DH</div>
+            <div class="brand-title">
+              <span class="brand-name">Dandy Huffaz</span>
+              <span class="brand-role">Software & AI Intern</span>
+            </div>
+          </a>
+
+          <nav>
+            <ul class="nav-links">
+              <li><a href="#about" class="nav-link">Tentang</a></li>
+              <li><a href="#projects" class="nav-link">Proyek Nyata</a></li>
+              <li><a href="#experience" class="nav-link">Pengalaman</a></li>
+              <li><a href="#education" class="nav-link">Pendidikan</a></li>
+              <li><a href="#skills" class="nav-link">Keahlian</a></li>
+              <li><a href="#credentials" class="nav-link">Sertifikasi</a></li>
+              <li><a href="#contact" class="nav-link">Kontak</a></li>
             </ul>
+          </nav>
 
-            <div class="hidden md:block">
-                <a href="#contact" class="btn-cyber text-sm">> CONNECT</a>
-            </div>
-
-            <button data-collapse-toggle="navbar-mobile" class="md:hidden text-text-dim hover:text-holo-1 text-xl">
-                <i class="fas fa-bars"></i>
+          <div class="nav-actions">
+            <a href="assets/docs/CV-Dandy.pdf" download class="btn btn-primary"
+              style="padding: 0.5rem 1.15rem; min-height: 40px; font-size: 0.84rem;">
+              <i class="fas fa-file-arrow-down"></i> Unduh CV
+            </a>
+            <button id="mobile-toggle" class="mobile-toggle" aria-label="Buka menu navigasi mobile">
+              <i class="fas fa-bars"></i>
             </button>
+          </div>
         </div>
+      </div>
 
-        <div id="navbar-mobile"
-            class="hidden absolute top-16 left-0 w-full bg-bg-terminal border-b border-border-dim flex-col p-6 gap-4">
-            <a href="#about" class="nav-link py-2">About</a>
-            <a href="#education" class="nav-link py-2">Education</a>
-            <a href="#experience" class="nav-link py-2">Experience</a>
-            <a href="#projects" class="nav-link py-2">Projects</a>
-            <a href="#publications" class="nav-link py-2">Research</a>
-            <a href="#certificates" class="nav-link py-2">Credentials</a>
-            <a href="#contact" class="text-holo-1 font-mono py-2">> Contact</a>
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobile-drawer" class="mobile-drawer">
+        <a href="#about" class="nav-link">Tentang</a>
+        <a href="#projects" class="nav-link">Proyek Nyata</a>
+        <a href="#experience" class="nav-link">Pengalaman</a>
+        <a href="#education" class="nav-link">Pendidikan</a>
+        <a href="#skills" class="nav-link">Keahlian</a>
+        <a href="#credentials" class="nav-link">Sertifikasi</a>
+        <a href="#contact" class="nav-link">Kontak</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============================================ -->
+      <!-- HERO SECTION -->
+      <!-- ============================================ -->
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-grid">
+
+            <!-- Left: Hero Overview & HR Value Proposition -->
+            <div class="hero-content">
+              <div>
+                <span class="status-badge">
+                  <span class="status-dot"></span>
+                  Mahasiswa Semester 7 • Siap Magang 3–6 Bulan (Software / AI / Data)
+                </span>
+              </div>
+
+              <h1 class="hero-title">
+                Membangun Solusi <span class="highlight-text">Software & AI</span> yang Siap Pakai di Industri.
+              </h1>
+
+              <p class="hero-bio">
+                Mahasiswa aktif <strong>Sistem Informasi UBSI (Semester 7)</strong> & Lulusan <strong>Cum Laude Politeknik APP Jakarta (IPK 3.95)</strong>. 
+                Berpengalaman mengembangkan sistem web produksi, mengintegrasikan otomasi AI/LLM, serta menjalankan operasional data logistik industri (Castrol Indonesia & JNE).
+              </p>
+
+              <div class="hero-specialization">
+                <span class="spec-chip"><i class="fas fa-code"></i> Full-Stack Web (Laravel/PHP/JS)</span>
+                <span class="spec-chip"><i class="fas fa-brain"></i> AI & LLM Automation</span>
+                <span class="spec-chip"><i class="fas fa-database"></i> SQL & Relational Database</span>
+                <span class="spec-chip"><i class="fas fa-truck-ramp-box"></i> Supply Chain & Logistics</span>
+              </div>
+
+              <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                  Lihat 5 Proyek Nyata <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                  Hubungi untuk Magang
+                </a>
+              </div>
+
+              <!-- Quick Highlights for Recruiter -->
+              <div class="quick-stats">
+                <div class="stat-item">
+                  <span class="stat-value">3.95<span class="stat-accent">/4.0</span></span>
+                  <span class="stat-label">IPK Cum Laude (D1)</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">5<span class="stat-accent"> Sistem</span></span>
+                  <span class="stat-label">Aplikasi Web Nyata</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">Juara 2</span>
+                  <span class="stat-label">IT Bootcamp Batch IV</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Spatial 3D Identity Card -->
+            <div class="hero-visual">
+              <div class="spatial-card-3d">
+                <div class="profile-avatar-wrapper">
+                  <img src="assets/img/profile.png" alt="Dandy Huffaz Ichlamsyah" class="profile-avatar">
+                  <div class="profile-header-info">
+                    <span class="profile-card-name">Dandy Huffaz Ichlamsyah</span>
+                    <span class="profile-card-sub">Software & AI Developer Intern</span>
+                  </div>
+                </div>
+
+                <div class="profile-meta-grid">
+                  <div class="meta-row">
+                    <span class="meta-key">STATUS AKADEMIS</span>
+                    <span class="meta-val">Semester 7 (UBSI & UT)</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="meta-key">ALMA MATER D1</span>
+                    <span class="meta-val">Politeknik APP (Cum Laude 3.95)</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="meta-key">KETERSEDIAAN</span>
+                    <span class="meta-val" style="color: var(--accent-emerald);">Tersedia untuk Magang</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="meta-key">LOKASI</span>
+                    <span class="meta-val">Jakarta Timur, DKI Jakarta</span>
+                  </div>
+                </div>
+
+                <div class="card-foot-badge">
+                  <span>ID KANDIDAT: DHI-2026-INTERN</span>
+                  <span style="color: var(--accent-blue); font-weight: 600;"><i class="fas fa-circle-check"></i> Kredensial Terverifikasi</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-    </nav>
+      </section>
 
-    <!-- ============================================ -->
-    <!-- HERO SECTION -->
-    <!-- ============================================ -->
-    <section class="min-h-screen flex items-center relative overflow-hidden pt-20 pb-12">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- ============================================ -->
+      <!-- ABOUT & RECRUITER VALUE PROPOSITION -->
+      <!-- ============================================ -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label"><i class="fas fa-user-check"></i> Ringkasan Kandidat</span>
+            <h2 class="section-title">Mengapa Memilih Dandy Sebagai Intern?</h2>
+            <p class="section-description">
+              Kombinasi keahlian teknis perangkat lunak, literasi automasi AI modern, dan disiplin operasional lapangan yang terbiasa dengan tenggat waktu industri.
+            </p>
+          </div>
 
-                <!-- Left: Profile & Text -->
+          <div class="about-grid">
+            <div class="about-narrative">
+              <p class="narrative-lead">
+                Sebagai mahasiswa tingkat akhir yang aktif di semester 7, saya mencari kesempatan <span class="text-accent">magang 3–6 bulan</span> untuk berkontribusi langsung pada tim rekayasa perangkat lunak, implementasi AI, atau analitik data.
+              </p>
+              <p>
+                Saya tidak hanya mempelajari teori di perkuliahan, melainkan telah membuktikan kemampuan dengan <strong>membangun dan merilis sistem nyata</strong>: mulai dari sistem operasional payroll pergudangan (Gudang DHI), portal PPDB online SMPIT Nurul Hikmah yang aktif digunakan, hingga platform LMS tergamifikasi Pinpin yang meraih predikat <em>Juara Terbaik ke-2 IT Bootcamp Software Dev Batch IV</em>.
+              </p>
+              <p>
+                Didukung oleh sertifikasi kompetensi nasional <strong>BNSP (Analis Program & Database Admin)</strong> serta sertifikasi <strong>IDCamp 2025 Level Expert</strong> dan <strong>Google AI Professional</strong>, saya memiliki kesiapan kerja yang matang untuk langsung beradaptasi dengan alur kerja tim Anda.
+              </p>
+            </div>
+
+            <div class="about-pillars">
+              <div class="pillar-card">
+                <div class="pillar-icon"><i class="fas fa-rocket"></i></div>
                 <div>
-                    <div class="font-mono text-xs text-text-dim mb-6" data-animate>
-                        <span class="text-holo-1">></span> STATUS: <span class="text-holo-1">OPEN TO
-                            OPPORTUNITIES</span>
-                    </div>
-
-                    <!-- Profile Image -->
-                    <div class="flex items-center gap-6 mb-8" data-animate>
-                        <div class="relative">
-                            <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-holo-1 p-1">
-                                <img src="assets/img/profile.png" alt="Dandy Huffaz Ichlamsyah"
-                                    class="w-full h-full object-cover rounded-full">
-                            </div>
-                            <div
-                                class="absolute -bottom-1 -right-1 w-6 h-6 bg-holo-1 rounded-full flex items-center justify-center">
-                                <i class="fas fa-check text-bg-deep text-xs"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h1 class="text-3xl md:text-4xl font-bold holo-text mb-1">Dandy Huffaz Ichlamsyah</h1>
-                            <div class="font-mono text-text-dim flex flex-wrap gap-2">
-                                <span class="text-holo-2">[</span>Systems Architect<span class="text-holo-2">]</span>
-                                <span class="text-holo-4">//</span>
-                                <span class="text-holo-2">[</span>Public Admin<span class="text-holo-2">]</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Description -->
-                    <p class="text-text-dim leading-relaxed mb-6" data-animate>
-                        Lulusan <span class="text-holo-1">Politeknik APP Jakarta</span> yang saat ini menempuh
-                        <span class="text-holo-3">Double Degree</span> di Sistem Informasi (UBSI) dan Administrasi
-                        Negara (UT).
-                        Memiliki keahlian hibrida dalam pengembangan perangkat lunak dan manajemen rantai pasok.
-                    </p>
-                    <p class="text-text-dim leading-relaxed mb-8" data-animate>
-                        Berpengalaman memimpin tim proyek TI serta memiliki kompetensi teknis dalam operasional logistik
-                        (Warehouse & Delivery) melalui pengalaman magang di perusahaan logistik terkemuka.
-                    </p>
-
-                    <!-- Location -->
-                    <div class="flex items-center gap-3 text-text-dim font-mono text-sm mb-8" data-animate>
-                        <i class="fas fa-map-marker-alt text-holo-1"></i>
-                        <span>Jakarta Timur, DKI Jakarta</span>
-                    </div>
-
-                    <!-- CTAs -->
-                    <div class="flex flex-wrap gap-4" data-animate>
-                        <a href="#projects" class="btn-cyber">
-                            EXPLORE WORK <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                        <a href="assets/docs/CV-Dandy.pdf" download class="btn-cyber btn-outline">
-                            <i class="fas fa-download mr-2"></i> GET CV
-                        </a>
-                    </div>
+                  <h3 class="pillar-title">Kode Siap Produksi</h3>
+                  <p class="pillar-desc">Terbiasa menulis kode terstruktur, modular, dan mengelola database relasional (PHP, Laravel, MySQL, REST API).</p>
                 </div>
+              </div>
 
-                <!-- Right: Interactive Terminal -->
-                <div class="terminal" data-animate>
-                    <div class="terminal-header">
-                        <div class="terminal-dot red"></div>
-                        <div class="terminal-dot yellow"></div>
-                        <div class="terminal-dot green"></div>
-                        <span class="terminal-title">dandy@portfolio — bash</span>
-                    </div>
-                    <div class="terminal-body" id="terminal-output"></div>
-                    <div class="border-t border-border-dim p-3 flex items-center">
-                        <span class="terminal-prompt">visitor@dandy:~$</span>
-                        <input type="text" id="terminal-input" class="terminal-input"
-                            placeholder="type 'help' for commands..." autocomplete="off">
-                        <span class="terminal-cursor"></span>
-                    </div>
+              <div class="pillar-card">
+                <div class="pillar-icon"><i class="fas fa-microchip"></i></div>
+                <div>
+                  <h3 class="pillar-title">Penerapan AI Praktis</h3>
+                  <p class="pillar-desc">Mampu memanfaatkan prompt engineering, automasi alur kerja n8n, dan integrasi API LLM untuk meningkatkan produktivitas.</p>
                 </div>
+              </div>
+
+              <div class="pillar-card">
+                <div class="pillar-icon"><i class="fas fa-briefcase"></i></div>
+                <div>
+                  <h3 class="pillar-title">Disiplin Kerja Korporat</h3>
+                  <p class="pillar-desc">Pengalaman nyata menangani data pelaporan Castrol Indonesia dan operasional logistik berskala besar di JNE Express.</p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </section>
 
-        <div class="absolute inset-0 opacity-[0.02]"
-            style="background-image: linear-gradient(#21262d 1px, transparent 1px), linear-gradient(90deg, #21262d 1px, transparent 1px); background-size: 50px 50px;">
+      <!-- ============================================ -->
+      <!-- SELECTED WORKS (5 REAL PROJECTS) -->
+      <!-- ============================================ -->
+      <section id="projects" class="section" style="background: var(--bg-subtle);">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label"><i class="fas fa-laptop-code"></i> Portofolio Karya Nyata</span>
+            <h2 class="section-title">5 Proyek Aplikasi Web yang Telah Dideploy</h2>
+            <p class="section-description">
+              Bukan sekadar tugas kuliah biasa — berikut adalah aplikasi web fungsional dan platform produksi yang dirancang untuk memecahkan masalah operasional riil.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+
+            <!-- Project 1: Gudang DHI -->
+            <div class="project-card">
+              <div class="project-top-meta">
+                <span class="project-badge-live"><i class="fas fa-gears"></i> Internal Enterprise Tool</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Sistem Penggajian</span>
+              </div>
+              <h3 class="project-title">Sistem Penggajian & Operasional Gudang (Gudang DHI)</h3>
+              <div class="project-category">PHP • MySQL • WMS & Payroll Engine</div>
+              <p class="project-summary">
+                Aplikasi web terpadu untuk digitalisasi operasional pergudangan. Mengotomatisasi kalkulasi gaji massal untuk <strong>24+ staf shift</strong>, presensi web harian, approval tukar shift otomatis, serta penyusunan laporan rekapitulasi gaji bulanan siap audit.
+              </p>
+              <div class="tag-list">
+                <span class="tag"><i class="fab fa-php"></i> PHP</span>
+                <span class="tag"><i class="fas fa-database"></i> MySQL</span>
+                <span class="tag"><i class="fas fa-calculator"></i> Auto-Payroll</span>
+                <span class="tag"><i class="fas fa-clock"></i> Shift Management</span>
+              </div>
+              <div class="project-actions">
+                <span style="font-size: 0.84rem; color: var(--text-muted); font-family: var(--font-mono);">
+                  <i class="fas fa-shield-halved text-accent"></i> Solusi Operasional Gudang
+                </span>
+              </div>
+            </div>
+
+            <!-- Project 2: PPDB SMPIT Nurul Hikmah -->
+            <div class="project-card">
+              <div class="project-top-meta">
+                <span class="project-badge-live"><i class="fas fa-circle-check"></i> Live Production</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Platform Edukasi</span>
+              </div>
+              <h3 class="project-title">Sistem PPDB & Portal Web SMPIT Nurul Hikmah</h3>
+              <div class="project-category">Custom MVC • PHP • MySQL • Bootstrap</div>
+              <p class="project-summary">
+                Platform web resmi profil sekolah dan portal pendaftaran santri baru (PPDB) online. Dilengkapi formulir registrasi multi-tahap, dashboard verifikasi pembayaran admin, pengecekan status kelulusan mandiri, dan 100% digitalisasi arsip tanpa dokumen fisik yang tercecer.
+              </p>
+              <div class="tag-list">
+                <span class="tag"><i class="fab fa-php"></i> PHP MVC</span>
+                <span class="tag"><i class="fas fa-database"></i> MySQL</span>
+                <span class="tag"><i class="fas fa-id-card"></i> Portal PPDB</span>
+                <span class="tag"><i class="fas fa-globe"></i> Live Domain</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://smpit-nurulhikmah.sch.id/" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  Kunjungi Website PPDB <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project 3: Pinpin LMS -->
+            <div class="project-card">
+              <div class="project-top-meta">
+                <span class="project-badge-award"><i class="fas fa-medal"></i> Juara 2 IT Bootcamp Batch IV</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Tim 7 Orang</span>
+              </div>
+              <h3 class="project-title">Pinpin E-Learning & Gamification Platform</h3>
+              <div class="project-category">Laravel • PHP • MySQL • Gamification Engine</div>
+              <p class="project-summary">
+                Aplikasi LMS interaktif berbasis gamifikasi untuk meningkatkan keterlibatan siswa. Dandy memimpin tim beranggotakan 7 orang melewati siklus lengkap SDLC: perancangan database, implementasi sistem XP real-time, leaderboard peringkat, dan kuis interaktif.
+              </p>
+              <div class="tag-list">
+                <span class="tag"><i class="fab fa-laravel"></i> Laravel</span>
+                <span class="tag"><i class="fab fa-php"></i> PHP</span>
+                <span class="tag"><i class="fas fa-gamepad"></i> XP Engine</span>
+                <span class="tag"><i class="fas fa-users"></i> Team Lead</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://drive.google.com/file/d/1Vhgz-8rDfugWunLkeXvNswDV5IbOw8VV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  Lihat Case Study Dokumen <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project 4: Nineetiestudio -->
+            <div class="project-card">
+              <div class="project-top-meta">
+                <span class="project-badge-live"><i class="fas fa-circle-check"></i> Live Production</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Komersial</span>
+              </div>
+              <h3 class="project-title">Nineetiestudio Photography Portal</h3>
+              <div class="project-category">HTML5 • Modern CSS • JavaScript • Vercel</div>
+              <p class="project-summary">
+                Website profil profesional dan portal landing page jasa fotografi komersial Nineetiestudio Jakarta. Memuat katalog paket (Wedding, Wisuda, Event), galeri resolusi tinggi interaktif, dan integrasi pemesanan konsultasi otomatis langsung ke WhatsApp.
+              </p>
+              <div class="tag-list">
+                <span class="tag"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="tag"><i class="fab fa-css3-alt"></i> Modern CSS</span>
+                <span class="tag"><i class="fab fa-whatsapp"></i> WhatsApp API</span>
+                <span class="tag"><i class="fas fa-cloud"></i> Vercel</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://nineetiestudio.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  Kunjungi Website Nineetiestudio <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project 5: Rohis SMAN 27 Jakarta -->
+            <div class="project-card" style="grid-column: 1 / -1;">
+              <div class="project-top-meta">
+                <span class="project-badge-live"><i class="fas fa-circle-check"></i> Live Production</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Organisasi & Jamstack</span>
+              </div>
+              <h3 class="project-title">Portal Web Rohis SMAN 27 Jakarta</h3>
+              <div class="project-category">Next.js • React • REST API • Vercel Jamstack</div>
+              <p class="project-summary">
+                Website resmi organisasi Rohani Islam SMAN 27 Jakarta berbasis arsitektur modern Jamstack. Mempublikasikan agenda program kerja, artikel dakwah terstruktur, galeri dokumentasi kegiatan, serta integrasi API waktu sholat wilayah DKI Jakarta secara real-time.
+              </p>
+              <div class="tag-list">
+                <span class="tag"><i class="fab fa-react"></i> Next.js / React</span>
+                <span class="tag"><i class="fas fa-network-wired"></i> Prayer Times API</span>
+                <span class="tag"><i class="fas fa-bolt"></i> Jamstack</span>
+                <span class="tag"><i class="fas fa-cloud"></i> Vercel</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://rohis-27.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  Kunjungi Website Rohis 27 <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- ============================================ -->
-    <!-- ABOUT SECTION -->
-    <!-- ============================================ -->
-    <section id="about" class="py-24 relative">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="section-header" data-animate>
-                <span class="section-number">01</span>
-                <h2 class="section-title">About Me</h2>
-                <div class="section-line"></div>
-            </div>
+      <!-- ============================================ -->
+      <!-- PROFESSIONAL EXPERIENCE -->
+      <!-- ============================================ -->
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label"><i class="fas fa-briefcase"></i> Rekam Jejak Industri</span>
+            <h2 class="section-title">Pengalaman Kerja & Magang Operasional</h2>
+            <p class="section-description">
+              Pengalaman langsung di operasional logistik berskala nasional, pengolahan data korporat Castrol Indonesia, serta koordinasi tim proyek.
+            </p>
+          </div>
 
-            <div class="card-cyber p-8" data-animate>
-                <div class="font-mono text-holo-1 text-sm mb-6">> cat about.txt</div>
-                <div class="space-y-4 text-text-dim leading-relaxed">
-                    <p>
-                        Lulusan <span class="text-holo-1">Politeknik APP Jakarta</span> yang saat ini menempuh
-                        <span class="text-holo-3">Double Degree</span> di <span class="text-text-bright">Sistem
-                            Informasi (UBSI)</span>
-                        dan <span class="text-text-bright">Administrasi Negara (UT)</span>.
-                    </p>
-                    <p>
-                        Memiliki keahlian hibrida dalam <span class="text-holo-2">pengembangan perangkat lunak (Software
-                            Development)</span>
-                        dan <span class="text-holo-4">manajemen rantai pasok (Supply Chain)</span>.
-                    </p>
-                    <p>
-                        Berpengalaman memimpin tim proyek TI serta memiliki kompetensi teknis dalam operasional logistik
-                        (Warehouse & Delivery) melalui pengalaman magang di perusahaan logistik terkemuka.
-                    </p>
-                    <p class="text-holo-1">
-                        Siap berkontribusi dalam peran yang mengintegrasikan efisiensi teknologi dan operasional.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+          <div class="timeline">
 
-    <!-- ============================================ -->
-    <!-- EDUCATION SECTION -->
-    <!-- ============================================ -->
-    <section id="education" class="py-24 bg-bg-terminal">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="section-header" data-animate>
-                <span class="section-number">02</span>
-                <h2 class="section-title">Education</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- UBSI -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-laptop-code"></i></div>
-                    <h3 class="font-bold text-text-bright text-lg mb-1">Universitas Bina Sarana Informatika</h3>
-                    <p class="text-holo-1 font-mono text-sm mb-3">Sistem Informasi</p>
-                    <div class="text-text-dim text-sm">
-                        <p class="font-mono text-xs text-holo-3 mb-2">> focus_areas:</p>
-                        <ul class="space-y-1 ml-4">
-                            <li>├── Pengembangan Perangkat Lunak</li>
-                            <li>├── Sistem Basis Data</li>
-                            <li>└── Manajemen Proyek TI</li>
-                        </ul>
-                    </div>
+            <!-- Castrol Indonesia -->
+            <div class="timeline-item">
+              <div class="timeline-marker"><i class="fas fa-database"></i></div>
+              <div class="card-3d">
+                <div class="exp-header">
+                  <div>
+                    <h3 class="exp-role">Event Data & Reporting Officer</h3>
+                    <div class="exp-company">Castrol Indonesia — Castrol Smart Mechanic Contest (CSMC 2023)</div>
+                  </div>
+                  <div class="exp-period">Proyek Korporat • Analisis & Pelaporan Data</div>
                 </div>
 
-                <!-- UT -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-2 text-3xl mb-4"><i class="fas fa-landmark"></i></div>
-                    <h3 class="font-bold text-text-bright text-lg mb-1">Universitas Terbuka</h3>
-                    <p class="text-holo-2 font-mono text-sm mb-3">Administrasi Negara</p>
-                    <div class="text-text-dim text-sm">
-                        <p class="font-mono text-xs text-holo-3 mb-2">> focus_areas:</p>
-                        <ul class="space-y-1 ml-4">
-                            <li>├── Manajemen Publik</li>
-                            <li>├── Kebijakan Publik</li>
-                            <li>└── Administrasi Pembangunan</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Politeknik APP -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-3 text-3xl mb-4"><i class="fas fa-truck"></i></div>
-                    <h3 class="font-bold text-text-bright text-lg mb-1">Politeknik APP Jakarta</h3>
-                    <p class="text-holo-3 font-mono text-sm mb-1">D1 Distribusi & Delivery</p>
-                    <p class="text-holo-1 font-mono text-xs mb-3">IPK: 3.95 / 4.00 (Cum Laude)</p>
-                    <div class="text-text-dim text-sm">
-                        <p class="font-mono text-xs text-holo-4 mb-2">> tugas_akhir:</p>
-                        <p class="text-xs italic">"Penerapan Sistem Informasi Delivery pada PT TIKI Jalur Nugraha
-                            Ekakurir"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- EXPERIENCE SECTION -->
-    <!-- ============================================ -->
-    <section id="experience" class="py-24">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="section-header" data-animate>
-                <span class="section-number">03</span>
-                <h2 class="section-title">Experience</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="space-y-6">
-                <!-- JNE -->
-                <div class="card-cyber p-8" data-animate>
-                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
-                        <div>
-                            <h3 class="text-xl font-bold text-text-bright">Magang Staf Operasional & Logistik</h3>
-                            <div class="text-holo-1 font-mono text-sm">PT Tiki Jalur Nugraha Ekakurir (JNE)</div>
-                        </div>
-                        <div class="text-text-dim font-mono text-sm mt-2 md:mt-0">
-                            <i class="fas fa-calendar-alt mr-1"></i> Internship
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-4 text-text-dim text-sm">
-                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
-                            <p class="text-holo-1 font-mono text-xs mb-2">> Manajemen Logistik (Fulfillment)</p>
-                            <p>Mengelola operasional gudang, inbound, outbound, dan stock opname.</p>
-                        </div>
-                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
-                            <p class="text-holo-2 font-mono text-xs mb-2">> Administrasi & Kontrol</p>
-                            <p>Bertugas di Control Tower memonitor pergerakan kiriman dan menangani klaim.</p>
-                        </div>
-                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
-                            <p class="text-holo-3 font-mono text-xs mb-2">> Gateway Operations</p>
-                            <p>Melakukan penyortiran kiriman, manifesting, bagging, dan pemeriksaan X-Ray.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CitoXpress -->
-                <div class="card-cyber p-8" data-animate>
-                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
-                        <div>
-                            <h3 class="text-xl font-bold text-text-bright">Magang Staf Distribusi & Pergudangan</h3>
-                            <div class="text-holo-3 font-mono text-sm">PT Citosarana Jasapratama (CitoXpress)</div>
-                        </div>
-                        <div class="text-text-dim font-mono text-sm mt-2 md:mt-0">
-                            <i class="fas fa-calendar-alt mr-1"></i> Internship
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-4 text-text-dim text-sm">
-                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
-                            <p class="text-holo-1 font-mono text-xs mb-2">> Warehouse Management (Danone)</p>
-                            <p>Mengelola gudang distribusi produk Danone.</p>
-                        </div>
-                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
-                            <p class="text-holo-2 font-mono text-xs mb-2">> Processing (EDKP)</p>
-                            <p>Input data kiriman, pembuatan connote, dan penyortiran barang.</p>
-                        </div>
-                        <div class="bg-bg-deep p-4 rounded border border-border-dim">
-                            <p class="text-holo-4 font-mono text-xs mb-2">> Admin Operasional (AO)</p>
-                            <p>Memproses Proof of Delivery (POD) dan menangani pelacakan kiriman.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event Coordinator -->
-                <div class="card-cyber p-8" data-animate>
-                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-text-bright">Event Coordinator Assistant</h3>
-                            <div class="text-holo-2 font-mono text-sm">Freelance</div>
-                        </div>
-                    </div>
-                    <ul class="text-text-dim space-y-2 text-sm">
-                        <li class="flex gap-2"><span class="text-holo-1">></span> Mendukung Project Officer dalam
-                            pelaksanaan acara</li>
-                        <li class="flex gap-2"><span class="text-holo-1">></span> Mengkoordinasikan talent dan
-                            memastikan kelengkapan perlengkapan acara</li>
-                        <li class="flex gap-2"><span class="text-holo-1">></span> Menjaga linimasa acara dan komunikasi
-                            antar tim di lapangan</li>
-                    </ul>
-                </div>
-
-                <!-- Admin Event -->
-                <div class="card-cyber p-8" data-animate>
-                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-text-bright">Admin Event</h3>
-                            <div class="text-holo-4 font-mono text-sm">Freelance</div>
-                        </div>
-                    </div>
-                    <ul class="text-text-dim space-y-2 text-sm">
-                        <li class="flex gap-2"><span class="text-holo-4">></span> Mengatur kegiatan komunikasi dan
-                            promosi untuk meningkatkan kesadaran acara</li>
-                        <li class="flex gap-2"><span class="text-holo-4">></span> Membuat laporan evaluasi untuk
-                            mengukur keberhasilan acara</li>
-                        <li class="flex gap-2"><span class="text-holo-4">></span> Memberikan rekomendasi perbaikan untuk
-                            acara mendatang</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- PROJECTS SECTION -->
-    <!-- ============================================ -->
-    <section id="projects" class="py-24 bg-bg-terminal">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="section-header" data-animate>
-                <span class="section-number">04</span>
-                <h2 class="section-title">Selected Works</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="card-cyber overflow-hidden" data-animate>
-                <div class="grid md:grid-cols-2">
-                    <div class="p-8">
-                        <div class="inline-block px-3 py-1 bg-holo-1/10 text-holo-1 text-xs font-mono rounded mb-4">
-                            🏆 2nd Place Winner
-                        </div>
-                        <h3 class="text-2xl font-bold text-text-bright mb-2">Pinpin E-Learning Platform</h3>
-                        <p class="text-holo-3 font-mono text-sm mb-4">IT Bootcamp Software Dev Batch IV (2025)</p>
-                        <p class="text-text-dim leading-relaxed mb-6">
-                            A comprehensive gamified learning system designed to increase student engagement.
-                            Led a 7-person team through the full SDLC, implementing real-time leaderboards
-                            (XP System) and automated student monitoring.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag-cyber">PHP</span>
-                            <span class="tag-cyber">Laravel</span>
-                            <span class="tag-cyber">MySQL</span>
-                            <span class="tag-cyber">Gamification</span>
-                        </div>
-                        <a href="https://drive.google.com/file/d/1Vhgz-8rDfugWunLkeXvNswDV5IbOw8VV/view?usp=sharing"
-                            target="_blank"
-                            class="inline-flex items-center gap-2 text-holo-1 font-mono text-sm hover:gap-3 transition-all">
-                            > View Case Study <i class="fas fa-external-link-alt text-xs"></i>
-                        </a>
-                    </div>
-                    <div class="bg-bg-deep flex items-center justify-center p-8">
-                        <img src="assets/img/projects/pinpin.jpeg" alt="Pinpin E-Learning"
-                            class="rounded border border-border-dim max-h-64 object-cover">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- PUBLICATIONS SECTION -->
-    <!-- ============================================ -->
-    <section id="publications" class="py-24">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="section-header" data-animate>
-                <span class="section-number">05</span>
-                <h2 class="section-title">Publications</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card-cyber p-8" data-animate>
-                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-chart-line"></i></div>
-                    <h3 class="text-lg font-bold text-text-bright mb-3">Digital Marketing Optimization for MSMEs</h3>
-                    <p class="text-text-dim text-sm leading-relaxed mb-4">
-                        "Optimalisasi Affiliate Marketing Sebagai Alternatif Pemasaran Digital Bagi UMKM" -
-                        An empirical analysis on leveraging digital economies for small businesses in the Industry 4.0
-                        era.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag-cyber">Digital Marketing</span>
-                        <span class="tag-cyber">UMKM</span>
-                        <span class="tag-cyber">Industry 4.0</span>
-                    </div>
-                </div>
-
-                <div class="card-cyber p-8" data-animate>
-                    <div class="text-holo-2 text-3xl mb-4"><i class="fas fa-mobile-alt"></i></div>
-                    <h3 class="text-lg font-bold text-text-bright mb-3">Mobile Commerce UI/UX Design</h3>
-                    <p class="text-text-dim text-sm leading-relaxed mb-4">
-                        "Perancangan UI/UX Penjualan Produk Makanan Cireng Mercon Berbasis Mobile" -
-                        Focusing on User Experience (UX) methodologies to enhance conversion rates in food delivery
-                        applications.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag-cyber">UI/UX</span>
-                        <span class="tag-cyber">Mobile App</span>
-                        <span class="tag-cyber">E-Commerce</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- CREDENTIALS SECTION -->
-    <!-- ============================================ -->
-    <section id="certificates" class="py-24 bg-bg-terminal">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="section-header" data-animate>
-                <span class="section-number">06</span>
-                <h2 class="section-title">Certifications & Awards</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Belajar Dasar AI -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-robot"></i></div>
-                    <h3 class="font-bold text-text-bright mb-2">Belajar Dasar AI</h3>
-                    <p class="text-text-dim text-xs font-mono mb-3">Dicoding Indonesia (Google Cloud Partner)</p>
-                    <p class="text-text-dim text-sm mb-4">Pemahaman fundamental AI, Machine Learning dan Deep Learning
-                        sebagai basis inovasi teknologi cerdas.</p>
-                    <a href="assets/Sertifikat/Belajar Dasar AI.pdf"
-                        class="view-certificate inline-flex items-center gap-2 text-holo-1 text-sm font-mono hover:gap-3 transition-all"
-                        data-type="pdf" data-title="Belajar Dasar AI">
-                        > view <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Prompt Engineering -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-2 text-3xl mb-4"><i class="fas fa-comment-dots"></i></div>
-                    <h3 class="font-bold text-text-bright mb-2">Prompt Engineering</h3>
-                    <p class="text-text-dim text-xs font-mono mb-3">Dicoding Indonesia</p>
-                    <p class="text-text-dim text-sm mb-4">Teknik komunikasi efektif dengan Generative AI untuk
-                        mengoptimalkan pengembangan perangkat lunak.</p>
-                    <a href="assets/Sertifikat/Prompt Engineering untuk Software Developer.pdf"
-                        class="view-certificate inline-flex items-center gap-2 text-holo-2 text-sm font-mono hover:gap-3 transition-all"
-                        data-type="pdf" data-title="Prompt Engineering">
-                        > view <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Machine Learning -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-3 text-3xl mb-4"><i class="fas fa-brain"></i></div>
-                    <h3 class="font-bold text-text-bright mb-2">Machine Learning</h3>
-                    <p class="text-text-dim text-xs font-mono mb-3">Dicoding Indonesia</p>
-                    <p class="text-text-dim text-sm mb-4">Kompetensi membangun model prediktif cerdas dengan Supervised
-                        dan Unsupervised Learning.</p>
-                    <a href="assets/Sertifikat/Belajar Machine Learning untuk Pemula.pdf"
-                        class="view-certificate inline-flex items-center gap-2 text-holo-3 text-sm font-mono hover:gap-3 transition-all"
-                        data-type="pdf" data-title="Machine Learning">
-                        > view <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Python -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-4 text-3xl mb-4"><i class="fab fa-python"></i></div>
-                    <h3 class="font-bold text-text-bright mb-2">Python Programming</h3>
-                    <p class="text-text-dim text-xs font-mono mb-3">Dicoding Indonesia</p>
-                    <p class="text-text-dim text-sm mb-4">Penguasaan logika pemrograman Python dan OOP untuk aplikasi
-                        yang bersih dan scalable.</p>
-                    <a href="assets/Sertifikat/Memulai Pemrograman dengan Python.pdf"
-                        class="view-certificate inline-flex items-center gap-2 text-holo-4 text-sm font-mono hover:gap-3 transition-all"
-                        data-type="pdf" data-title="Python Programming">
-                        > view <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- AI Professional Skill -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-certificate"></i></div>
-                    <h3 class="font-bold text-text-bright mb-2">AI Professional Skill</h3>
-                    <p class="text-text-dim text-xs font-mono mb-3">MySkill (AWS EdStart Member)</p>
-                    <p class="text-text-dim text-sm mb-4">Full Learning Path Artificial Intelligence memvalidasi
-                        kesiapan profesional menerapkan solusi AI.</p>
-                    <a href="assets/Sertifikat/Certificate of Professional Skill in Artificial Intelligence.pdf"
-                        class="view-certificate inline-flex items-center gap-2 text-holo-1 text-sm font-mono hover:gap-3 transition-all"
-                        data-type="pdf" data-title="AI Professional Skill">
-                        > view <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Career Planning -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-2 text-3xl mb-4"><i class="fas fa-route"></i></div>
-                    <h3 class="font-bold text-text-bright mb-2">IT Career Planning</h3>
-                    <p class="text-text-dim text-xs font-mono mb-3">SmartPath</p>
-                    <p class="text-text-dim text-sm mb-4">Wawasan strategis perencanaan karir di industri IT global dan
-                        roadmap sukses.</p>
-                    <a href="assets/Sertifikat/Certificate of Appreciation - Successful Career Planning ITComputer.jpg"
-                        class="view-certificate inline-flex items-center gap-2 text-holo-2 text-sm font-mono hover:gap-3 transition-all"
-                        data-type="image" data-title="IT Career Planning">
-                        > view <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Workshop IT Bootcamp -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-3 text-3xl mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h3 class="font-bold text-text-bright mb-2">Workshop IT Bootcamp</h3>
-                    <p class="text-text-dim text-xs font-mono mb-3">Universitas Bina Sarana Informatika</p>
-                    <p class="text-text-dim text-sm mb-4">Pendalaman standar industri pengembangan perangkat lunak dan
-                        kesiapan adaptasi teknologi.</p>
-                    <a href="assets/Sertifikat/Workshop IT Bootcamp Software Development For Industry.pdf"
-                        class="view-certificate inline-flex items-center gap-2 text-holo-3 text-sm font-mono hover:gap-3 transition-all"
-                        data-type="pdf" data-title="Workshop IT Bootcamp">
-                        > view <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- IT Bootcamp -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-4 text-3xl mb-4"><i class="fas fa-code"></i></div>
-                    <h3 class="font-bold text-text-bright mb-2">IT Bootcamp</h3>
-                    <p class="text-text-dim text-xs font-mono mb-3">Universitas Bina Sarana Informatika</p>
-                    <p class="text-text-dim text-sm mb-4">Simulasi proyek industri nyata, kolaborasi tim, dan presentasi
-                        teknis di hadapan para ahli.</p>
-                    <a href="assets/Sertifikat/IT Bootcamp Software Development For Industry.pdf"
-                        class="view-certificate inline-flex items-center gap-2 text-holo-4 text-sm font-mono hover:gap-3 transition-all"
-                        data-type="pdf" data-title="IT Bootcamp">
-                        > view <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- KKP Award -->
-                <div class="card-cyber p-6" data-animate>
-                    <div class="text-holo-1 text-3xl mb-4"><i class="fas fa-trophy"></i></div>
-                    <h3 class="font-bold text-text-bright mb-2">Juara Harapan 1 KKP</h3>
-                    <p class="text-text-dim text-xs font-mono mb-3">Sudin Pendidikan Wilayah II JakPus</p>
-                    <p class="text-text-dim text-sm mb-4">Pengakuan prestasi tingkat nasional atas kepemimpinan dan
-                        potensi luar biasa.</p>
-                    <a href="assets/Sertifikat/Piagam Penghargaan Juara Harapan 1 - Kategori Putra Terbaik.pdf"
-                        class="view-certificate inline-flex items-center gap-2 text-holo-1 text-sm font-mono hover:gap-3 transition-all"
-                        data-type="pdf" data-title="Juara Harapan 1 KKP">
-                        > view <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- SKILLS SECTION -->
-    <!-- ============================================ -->
-    <section id="skills" class="py-24">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="section-header" data-animate>
-                <span class="section-number">07</span>
-                <h2 class="section-title">Skills & Expertise</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card-cyber p-8" data-animate>
-                    <div class="font-mono text-holo-1 text-sm mb-4">> technical_skills</div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="tag-cyber"><i class="fab fa-python mr-2"></i>Python</span>
-                        <span class="tag-cyber"><i class="fab fa-js-square mr-2"></i>JavaScript</span>
-                        <span class="tag-cyber"><i class="fas fa-database mr-2"></i>SQL</span>
-                        <span class="tag-cyber"><i class="fab fa-php mr-2"></i>PHP</span>
-                        <span class="tag-cyber"><i class="fab fa-laravel mr-2"></i>Laravel</span>
-                        <span class="tag-cyber"><i class="fas fa-brain mr-2"></i>Machine Learning</span>
-                        <span class="tag-cyber"><i class="fas fa-robot mr-2"></i>Prompt Engineering</span>
-                        <span class="tag-cyber"><i class="fab fa-git-alt mr-2"></i>Git</span>
-                        <span class="tag-cyber"><i class="fab fa-linux mr-2"></i>Linux</span>
-                        <span class="tag-cyber"><i class="fas fa-chart-bar mr-2"></i>Data Analysis</span>
-                    </div>
-                </div>
-
-                <div class="card-cyber p-8" data-animate>
-                    <div class="font-mono text-holo-2 text-sm mb-4">> soft_skills</div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="tag-cyber"><i class="fas fa-users mr-2"></i>Team Leadership</span>
-                        <span class="tag-cyber"><i class="fas fa-project-diagram mr-2"></i>Project Management</span>
-                        <span class="tag-cyber"><i class="fas fa-comments mr-2"></i>Communication</span>
-                        <span class="tag-cyber"><i class="fas fa-lightbulb mr-2"></i>Problem Solving</span>
-                        <span class="tag-cyber"><i class="fas fa-clock mr-2"></i>Time Management</span>
-                        <span class="tag-cyber"><i class="fas fa-handshake mr-2"></i>Stakeholder Management</span>
-                    </div>
-                    <div class="mt-6 p-4 bg-bg-deep rounded border border-holo-1/30">
-                        <p class="text-holo-1 font-mono text-xs mb-2">> achievement:</p>
-                        <p class="text-text-dim text-sm">
-                            <span class="text-holo-1">Juara Harapan 1</span>, Kawah Kepemimpinan Pelajar (KKP) Tingkat
-                            Nasional –
-                            Menunjukkan kompetensi dalam analisis masalah sosial dan dinamika kelompok.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- CONTACT SECTION -->
-    <!-- ============================================ -->
-    <section id="contact" class="py-24 bg-bg-terminal">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="section-header" data-animate>
-                <span class="section-number">08</span>
-                <h2 class="section-title">Contact</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="text-center mb-12" data-animate>
-                <h3 class="text-3xl md:text-4xl font-bold holo-text mb-4">Ready to Collaborate?</h3>
-                <p class="text-text-dim max-w-xl mx-auto">
-                    Tertarik untuk berkolaborasi atau sekadar berdiskusi tentang teknologi dan kebijakan publik?
-                    Jangan ragu untuk menghubungi saya.
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                  Bertanggung jawab atas validitas data registrasi dan penyusunan dokumen pelaporan kinerja operasional resmi bagi pihak manajemen Castrol Indonesia.
                 </p>
+
+                <div class="exp-breakdown">
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Data Extraction</div>
+                    <div class="breakdown-desc">Mengekstrak raw data berkala dari platform registrasi digital Quick Sign untuk memetakan profil mekanik dan asal bengkel peserta secara presisi.</div>
+                  </div>
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Data Cleansing & Validation</div>
+                    <div class="breakdown-desc">Melakukan pembersihan data duplikat, verifikasi nomor kontak, dan filtering absensi menggunakan formula Excel tingkat lanjut.</div>
+                  </div>
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Corporate Reporting</div>
+                    <div class="breakdown-desc">Menyusun Daily Report dan Weekly Report akumulatif performa kehadiran peserta sebagai dokumen evaluasi resmi bagi Castrol Indonesia.</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12">
-                <div data-animate>
-                    <div class="font-mono text-holo-1 text-lg mb-6">> contact --info</div>
-
-                    <div class="space-y-4 font-mono">
-                        <a href="mailto:dandyichlamsyah@gmail.com"
-                            class="flex items-center gap-4 text-text-dim hover:text-holo-1 transition-colors group">
-                            <div
-                                class="w-12 h-12 border border-border-dim group-hover:border-holo-1 flex items-center justify-center transition-colors">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-text-muted">Email</p>
-                                <p class="text-sm">dandyichlamsyah@gmail.com</p>
-                            </div>
-                        </a>
-                        <a href="https://linkedin.com/in/dandy-huffaz-ichlamsyah-563211190" target="_blank"
-                            class="flex items-center gap-4 text-text-dim hover:text-holo-3 transition-colors group">
-                            <div
-                                class="w-12 h-12 border border-border-dim group-hover:border-holo-3 flex items-center justify-center transition-colors">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-text-muted">LinkedIn</p>
-                                <p class="text-sm">/dandy-huffaz-ichlamsyah</p>
-                            </div>
-                        </a>
-                        <a href="https://github.com/dandyhuffazichlamsyah" target="_blank"
-                            class="flex items-center gap-4 text-text-dim hover:text-holo-2 transition-colors group">
-                            <div
-                                class="w-12 h-12 border border-border-dim group-hover:border-holo-2 flex items-center justify-center transition-colors">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-text-muted">GitHub</p>
-                                <p class="text-sm">/dandyhuffazichlamsyah</p>
-                            </div>
-                        </a>
-                        <div class="flex items-center gap-4 text-text-dim">
-                            <div class="w-12 h-12 border border-border-dim flex items-center justify-center">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-text-muted">Location</p>
-                                <p class="text-sm">Jakarta Timur, DKI Jakarta</p>
-                            </div>
-                        </div>
-                    </div>
+            <!-- JNE Express -->
+            <div class="timeline-item">
+              <div class="timeline-marker"><i class="fas fa-truck-fast"></i></div>
+              <div class="card-3d">
+                <div class="exp-header">
+                  <div>
+                    <h3 class="exp-role">Magang Staf Operasional & Logistik</h3>
+                    <div class="exp-company">PT Tiki Jalur Nugraha Ekakurir (JNE)</div>
+                  </div>
+                  <div class="exp-period">Magang Industri • Operasional Logistik</div>
                 </div>
 
-                <form id="contactForm" action="https://formspree.io/f/xwkgvkpv" method="POST" class="space-y-4"
-                    data-animate>
-                    <div>
-                        <label class="block text-text-dim text-sm font-mono mb-2">> your_name</label>
-                        <input type="text" name="name" required
-                            class="w-full bg-bg-card border border-border-dim text-text-bright px-4 py-3 font-mono focus:border-holo-1 focus:outline-none transition-colors">
-                    </div>
-                    <div>
-                        <label class="block text-text-dim text-sm font-mono mb-2">> your_email</label>
-                        <input type="email" name="email" required
-                            class="w-full bg-bg-card border border-border-dim text-text-bright px-4 py-3 font-mono focus:border-holo-1 focus:outline-none transition-colors">
-                    </div>
-                    <div>
-                        <label class="block text-text-dim text-sm font-mono mb-2">> message</label>
-                        <textarea name="message" rows="4" required
-                            class="w-full bg-bg-card border border-border-dim text-text-bright px-4 py-3 font-mono focus:border-holo-1 focus:outline-none transition-colors resize-none"></textarea>
-                    </div>
-                    <button type="submit" class="btn-cyber w-full">
-                        > TRANSMIT MESSAGE <i class="fas fa-paper-plane ml-2"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                  Menjalankan tugas pada 3 divisi vital logistik untuk memastikan akurasi data pengiriman dan kelancaran pergerakan paket pelanggan.
+                </p>
 
+                <div class="exp-breakdown">
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Fulfillment & Gudang</div>
+                    <div class="breakdown-desc">Pengelolaan arus barang inbound, persiapan dispatch outbound, serta pelaksanaan stock opname fisik gudang berkala.</div>
+                  </div>
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Control Tower Monitoring</div>
+                    <div class="breakdown-desc">Memantau pergerakan armada secara real-time melalui sistem pemantauan terpusat dan menangani eskalasi komplain/klaim kiriman.</div>
+                  </div>
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Gateway & Screening</div>
+                    <div class="breakdown-desc">Sortasi kiriman bertonase besar, pencetakan data manifest, bagging paket, dan supervisi pemeriksaan X-Ray bandara.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CitoXpress -->
+            <div class="timeline-item">
+              <div class="timeline-marker"><i class="fas fa-warehouse"></i></div>
+              <div class="card-3d">
+                <div class="exp-header">
+                  <div>
+                    <h3 class="exp-role">Magang Staf Distribusi & Pergudangan</h3>
+                    <div class="exp-company">PT Citosarana Jasapratama (CitoXpress)</div>
+                  </div>
+                  <div class="exp-period">Magang Industri • Pergudangan FMCG</div>
+                </div>
+
+                <div class="exp-breakdown">
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Gudang Danone</div>
+                    <div class="breakdown-desc">Membantu tata letak (layouting) dan administrasi penyimpanan stok produk Danone sesuai SOP pergudangan.</div>
+                  </div>
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Processing EDKP</div>
+                    <div class="breakdown-desc">Entri data muatan connote ke sistem internal perusahaan, verifikasi berat/dimensi, dan klasifikasi rute antaran.</div>
+                  </div>
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Admin Operasional (AO)</div>
+                    <div class="breakdown-desc">Pengarsipan dan validasi fisik Proof of Delivery (POD) serta penelusuran status resi bagi customer service.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Coordination Assistant -->
+            <div class="timeline-item">
+              <div class="timeline-marker"><i class="fas fa-clipboard-check"></i></div>
+              <div class="card-3d">
+                <div class="exp-header">
+                  <div>
+                    <h3 class="exp-role">Event Coordinator & Relations Assistant</h3>
+                    <div class="exp-company">Freelance Projects</div>
+                  </div>
+                  <div class="exp-period">Project-Based • Manajemen Lapangan</div>
+                </div>
+
+                <div class="exp-breakdown">
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Koordinasi Talent & Waktu</div>
+                    <div class="breakdown-desc">Mengatur jadwal kehadiran narasumber/pengisi acara dan memastikan rundown panggung berjalan tepat waktu.</div>
+                  </div>
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Komunikasi & Angket</div>
+                    <div class="breakdown-desc">Mendistribusikan angket feedback peserta dan menyusun draf evaluasi acara untuk panitia inti.</div>
+                  </div>
+                  <div class="breakdown-box">
+                    <div class="breakdown-tag">Problem Solving</div>
+                    <div class="breakdown-desc">Cepat tanggap dalam mitigasi kendala teknis dan logistik perlengkapan selama acara berlangsung.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- EDUCATION SECTION -->
+      <!-- ============================================ -->
+      <section id="education" class="section" style="background: var(--bg-subtle);">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label"><i class="fas fa-graduation-cap"></i> Riwayat Akademis</span>
+            <h2 class="section-title">Pendidikan & Fokus Studi</h2>
+            <p class="section-description">
+              Pendidikan ganda yang menggabungkan kemampuan rekayasa perangkat lunak dan analisis tata kelola publik.
+            </p>
+          </div>
+
+          <div class="education-grid">
+
+            <!-- UBSI -->
+            <div class="card-3d">
+              <div class="edu-badge">S1 • Sedang Ditempuh (Semester 7)</div>
+              <h3 class="edu-institution">Universitas Bina Sarana Informatika</h3>
+              <div class="edu-degree">S1 Sistem Informasi (Angkatan 2023)</div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                Fokus mendalam pada siklus rekayasa perangkat lunak, perancangan arsitektur basis data relasional, dan manajemen proyek sistem informasi.
+              </p>
+              <ul class="edu-curriculum">
+                <li><i class="fas fa-check"></i> Pengembangan Perangkat Lunak Web</li>
+                <li><i class="fas fa-check"></i> Sistem Manajemen Basis Data (SQL)</li>
+                <li><i class="fas fa-check"></i> Analisis & Desain Sistem Berorientasi Objek</li>
+              </ul>
+            </div>
+
+            <!-- UT -->
+            <div class="card-3d">
+              <div class="edu-badge">S1 • Sedang Ditempuh (Semester 7)</div>
+              <h3 class="edu-institution">Universitas Terbuka</h3>
+              <div class="edu-degree">S1 Ilmu Administrasi Negara</div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                Mempelajari tata kelola kelembagaan, formulasi kebijakan publik berbasis data, dan efisiensi manajemen pelayanan birokrasi modern.
+              </p>
+              <ul class="edu-curriculum">
+                <li><i class="fas fa-check"></i> Analisis & Kebijakan Publik</li>
+                <li><i class="fas fa-check"></i> Manajemen Pelayanan Sektor Publik</li>
+                <li><i class="fas fa-check"></i> Sistem Administrasi Pembangunan</li>
+              </ul>
+            </div>
+
+            <!-- Politeknik APP Jakarta -->
+            <div class="card-3d">
+              <div class="edu-badge" style="background: var(--accent-emerald-soft); border-color: rgba(5, 150, 105, 0.3); color: var(--accent-emerald);">
+                Cum Laude • IPK 3.95 / 4.00
+              </div>
+              <h3 class="edu-institution">Politeknik APP Jakarta</h3>
+              <div class="edu-degree">D1 Distribusi & Delivery (Lulus 2022)</div>
+              <p style="font-size: 0.84rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem;">
+                Tugas Akhir: "Penerapan Sistem Informasi Delivery pada PT TIKI Jalur Nugraha Ekakurir"
+              </p>
+              <ul class="edu-curriculum">
+                <li><i class="fas fa-check"></i> Manajemen Pergudangan & Inventory</li>
+                <li><i class="fas fa-check"></i> Sistem Operasional Distribusi Barang</li>
+                <li><i class="fas fa-check"></i> Penerapan SI Delivery Logistik</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SKILLS MATRIX -->
+      <!-- ============================================ -->
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label"><i class="fas fa-screwdriver-wrench"></i> Matriks Kemampuan</span>
+            <h2 class="section-title">Keahlian Teknis & Sertifikasi</h2>
+            <p class="section-description">
+              Daftar teknologi, framework, dan metodologi yang siap saya gunakan untuk menyelesaikan pekerjaan secara mandiri maupun dalam tim.
+            </p>
+          </div>
+
+          <div class="skills-matrix">
+
+            <!-- Software Engineering -->
+            <div class="card-3d">
+              <div class="matrix-header">
+                <i class="fas fa-code" style="color: var(--accent-blue); font-size: 1.25rem;"></i>
+                <h3 class="matrix-title">Software Engineering</h3>
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip"><i class="fab fa-php"></i> PHP (Laravel/OOP)</span>
+                <span class="skill-chip"><i class="fab fa-js"></i> JavaScript (ES6+)</span>
+                <span class="skill-chip"><i class="fab fa-python"></i> Python</span>
+                <span class="skill-chip"><i class="fas fa-database"></i> SQL / MySQL</span>
+                <span class="skill-chip"><i class="fab fa-react"></i> React / Next.js</span>
+                <span class="skill-chip"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+                <span class="skill-chip"><i class="fab fa-linux"></i> Linux CLI & Bash</span>
+              </div>
+            </div>
+
+            <!-- AI & Data Intelligence -->
+            <div class="card-3d">
+              <div class="matrix-header">
+                <i class="fas fa-brain" style="color: var(--accent-blue); font-size: 1.25rem;"></i>
+                <h3 class="matrix-title">AI & Data Solutions</h3>
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip"><i class="fas fa-robot"></i> Prompt Engineering</span>
+                <span class="skill-chip"><i class="fas fa-network-wired"></i> n8n Automation</span>
+                <span class="skill-chip"><i class="fas fa-microchip"></i> Gen AI & LLM (Dicoding)</span>
+                <span class="skill-chip"><i class="fas fa-chart-column"></i> Data Analysis (Excel/Python)</span>
+                <span class="skill-chip"><i class="fab fa-microsoft"></i> Azure AI Services</span>
+                <span class="skill-chip"><i class="fas fa-certificate"></i> BNSP Analis Program</span>
+                <span class="skill-chip"><i class="fas fa-certificate"></i> BNSP Database Admin</span>
+              </div>
+            </div>
+
+            <!-- Supply Chain & Soft Skills -->
+            <div class="card-3d">
+              <div class="matrix-header">
+                <i class="fas fa-boxes-stacked" style="color: var(--accent-blue); font-size: 1.25rem;"></i>
+                <h3 class="matrix-title">Operasional & Soft Skills</h3>
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip"><i class="fas fa-warehouse"></i> Warehouse Fulfillment</span>
+                <span class="skill-chip"><i class="fas fa-tower-broadcast"></i> Control Tower Ops</span>
+                <span class="skill-chip"><i class="fas fa-barcode"></i> Connote & POD Auditing</span>
+                <span class="skill-chip"><i class="fas fa-users-gear"></i> Kepemimpinan Tim (7 Orang)</span>
+                <span class="skill-chip"><i class="fas fa-list-check"></i> Pelaporan Analitik Korporat</span>
+                <span class="skill-chip"><i class="fas fa-medal"></i> Juara 1 Putra Terbaik KKP</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CREDENTIALS VAULT -->
+      <!-- ============================================ -->
+      <section id="credentials" class="section" style="background: var(--bg-subtle);">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label"><i class="fas fa-award"></i> Kredensial Terverifikasi</span>
+            <h2 class="section-title">Sertifikasi & Penghargaan Resmi</h2>
+            <p class="section-description">
+              Bukti otentik kompetensi dari BNSP, Dicoding Indonesia, Google Cloud Partner, Indosat IDCamp, Coursera, dan instansi terkait. Klik untuk melihat dokumen.
+            </p>
+          </div>
+
+          <!-- Controls: Category Tabs & Real-Time Search -->
+          <div class="cert-controls">
+            <div class="cert-filter-tabs">
+              <button class="filter-btn active" data-filter="all">Semua Kredensial</button>
+              <button class="filter-btn" data-filter="software">Software Engineering</button>
+              <button class="filter-btn" data-filter="ai-ml">AI & Machine Learning</button>
+              <button class="filter-btn" data-filter="supply-chain">Logistik & Supply Chain</button>
+              <button class="filter-btn" data-filter="leadership">Kepemimpinan & Prestasi</button>
+            </div>
+
+            <div class="cert-search-box">
+              <i class="fas fa-search cert-search-icon"></i>
+              <input type="text" id="cert-search" class="cert-search-input" placeholder="Cari sertifikat atau topik...">
+            </div>
+          </div>
+
+          <!-- Dynamic Grid Container -->
+          <div id="certs-grid" class="cert-grid">
+            <!-- Populated dynamically by script.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CONTACT & INTERNSHIP CALL TO ACTION -->
+      <!-- ============================================ -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label"><i class="fas fa-handshake"></i> Terbuka untuk Diskusi</span>
+            <h2 class="section-title">Mari Berdiskusi Mengenai Kesempatan Magang</h2>
+            <p class="section-description">
+              Saya sangat antusias untuk bergabung dan memberikan kontribusi nyata dalam proyek teknologi di perusahaan Anda. Hubungi saya melalui saluran langsung di bawah ini.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+
+            <!-- Contact Direct Channels -->
+            <div class="contact-info-list">
+              <a href="mailto:dandyichlamsyah@gmail.com" class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <div class="contact-item-label">Email Langsung</div>
+                  <div class="contact-item-value">dandyichlamsyah@gmail.com</div>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/dandy-huffaz-ichlamsyah-563211190" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-item-icon"><i class="fab fa-linkedin-in"></i></div>
+                <div>
+                  <div class="contact-item-label">Profil LinkedIn</div>
+                  <div class="contact-item-value">/in/dandy-huffaz-ichlamsyah</div>
+                </div>
+              </a>
+
+              <a href="https://github.com/dandyhuffazichlamsyah" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-item-icon"><i class="fab fa-github"></i></div>
+                <div>
+                  <div class="contact-item-label">Repositori GitHub</div>
+                  <div class="contact-item-value">@dandyhuffazichlamsyah</div>
+                </div>
+              </a>
+
+              <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-location-dot"></i></div>
+                <div>
+                  <div class="contact-item-label">Domisili</div>
+                  <div class="contact-item-value">Jakarta Timur, DKI Jakarta, Indonesia</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Deterministic Formspree Form -->
+            <form id="contact-form" action="https://formspree.io/f/xwkgvkpv" method="POST" class="contact-form">
+              <div class="form-feedback" id="form-feedback"></div>
+
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Nama Lengkap / Perusahaan</label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="Contoh: Sarah - Tech Recruiter" required autocomplete="name">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Alamat Email</label>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="Contoh: sarah@company.com" required autocomplete="email">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Pesan / Penawaran Magang</label>
+                <textarea id="contact-message" name="message" class="form-textarea" placeholder="Tuliskan posisi magang, lingkup proyek, atau tawaran kolaborasi yang Anda miliki..." required></textarea>
+              </div>
+
+              <button type="submit" id="form-submit-btn" class="btn btn-primary" style="width: 100%;">
+                Kirimkan Pesan Langsung <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================ -->
     <!-- FOOTER -->
-    <footer class="footer-cyber py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex items-center gap-3">
-                    <div
-                        class="w-10 h-10 border border-holo-1 flex items-center justify-center font-mono font-bold text-holo-1">
-                        DH
-                    </div>
-                    <span class="font-mono text-text-dim">
-                        <span class="text-holo-1">Dandy</span> Huffaz Ichlamsyah
-                    </span>
-                </div>
+    <!-- ============================================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div class="brand-glyph" style="width: 32px; height: 32px; font-size: 0.8rem;">DH</div>
+            <span class="footer-copy">
+              © 2026 Dandy Huffaz Ichlamsyah. All rights reserved.
+            </span>
+          </div>
 
-                <p class="text-text-dim text-sm font-mono">
-                    © 2026 // Crafted with <span class="text-holo-1">&lt;/&gt;</span> and <span
-                        class="text-holo-2">♥</span>
-                </p>
-
-                <div class="flex gap-4">
-                    <a href="https://linkedin.com/in/dandy-huffaz-ichlamsyah-563211190" target="_blank"
-                        class="w-10 h-10 border border-border-dim flex items-center justify-center text-text-dim hover:text-holo-1 hover:border-holo-1 transition-all">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/dandyhuffazichlamsyah" target="_blank"
-                        class="w-10 h-10 border border-border-dim flex items-center justify-center text-text-dim hover:text-holo-1 hover:border-holo-1 transition-all">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:dandyichlamsyah@gmail.com"
-                        class="w-10 h-10 border border-border-dim flex items-center justify-center text-text-dim hover:text-holo-1 hover:border-holo-1 transition-all">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
+          <div class="footer-socials">
+            <a href="https://linkedin.com/in/dandy-huffaz-ichlamsyah-563211190" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/dandyhuffazichlamsyah" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:dandyichlamsyah@gmail.com" class="social-link" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
+      </div>
     </footer>
 
-    <!-- Certificate Modal -->
-    <div id="certificateModal"
-        class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-bg-deep/90 backdrop-blur-sm">
-        <div class="relative w-full max-w-5xl h-[85vh] bg-bg-terminal border border-border-dim flex flex-col overflow-hidden"
-            id="modalContent">
-            <div class="flex items-center justify-between p-4 border-b border-border-dim">
-                <h3 class="text-lg font-mono text-text-bright flex items-center gap-3" id="modalTitle">
-                    <span class="text-holo-1">></span> <span>Certificate View</span>
-                </h3>
-                <button id="closeModal"
-                    class="w-8 h-8 border border-border-dim text-text-dim hover:text-holo-1 hover:border-holo-1 flex items-center justify-center transition-colors">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="flex-grow bg-bg-deep relative overflow-hidden flex items-center justify-center" id="modalBody">
-                <div class="text-holo-1 font-mono">Loading...</div>
-            </div>
-            <div class="p-3 border-t border-border-dim flex justify-end">
-                <a href="#" id="downloadLink" target="_blank" download
-                    class="text-sm font-mono text-holo-1 hover:text-text-bright flex items-center gap-2 px-4 py-2 border border-holo-1/30 hover:border-holo-1 transition-all">
-                    <i class="fas fa-download"></i> DOWNLOAD
-                </a>
-            </div>
+    <!-- ============================================ -->
+    <!-- CERTIFICATE VIEWER MODAL LIGHTBOX -->
+    <!-- ============================================ -->
+    <div id="cert-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-window">
+        <div class="modal-header">
+          <h3 id="modal-title" class="modal-title">Verifikasi Dokumen Kredensial</h3>
+          <button id="modal-close-btn" class="modal-close-btn" aria-label="Tutup jendela modal">
+            <i class="fas fa-xmark"></i>
+          </button>
         </div>
+        <div id="modal-body" class="modal-body"></div>
+        <div class="modal-footer">
+          <span class="modal-footer-info">Dokumen Kredensial Asli / Terverifikasi</span>
+          <a href="#" id="modal-download-btn" download class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.82rem; min-height: 38px;">
+            <i class="fas fa-download"></i> Unduh File Asli
+          </a>
+        </div>
+      </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/script.js"></script>
+  </div>
+
+  <!-- Three.js r128 via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Application Engine Script -->
+  <script src="assets/js/script.js"></script>
 
 </body>
 
